@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 export const Navbar = styled.div`
-height: 600px;
+height: 500px;
 background: linear-gradient(to top,  #0e26ac 0%,#020861 50%,#0c0361 50%,#000120 100%);
 .laltain{
     position: absolute;
@@ -20,4 +20,5 @@ height:70px;
 display: flex;
 flex-direction: row-reverse
 }
+margin-bottom: 50px;
 `

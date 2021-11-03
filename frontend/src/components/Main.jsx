@@ -4,6 +4,9 @@ import BusinessIcon from "@mui/icons-material/Business";
 import { Icondiv } from "./Icondiv";
 import { Bookingcss } from "./Bookingcss";
 import {Fromto} from "./Fromto";
+import {MultipleSlidesExample} from './Slidebar'
+
+// import {MultipleSlidesExample} from './Slidebar'
 export const Main = () => {
   return (
     <div>
@@ -58,6 +61,7 @@ export const Main = () => {
          <Fromto/>
         </Bookingcss>
       </Navbar>
+      <div style={{width: '90%' , margin: 'auto'}}><MultipleSlidesExample/></div>
     </div>
   );
 };
