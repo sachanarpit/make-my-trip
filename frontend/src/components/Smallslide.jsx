@@ -8,6 +8,6 @@ export const Smallslide = ()=>{
             <p>
        Booking a flight can be an effect by offline.
             </p>
-        </div>
+        </div> 
     </Slidecss>
 }

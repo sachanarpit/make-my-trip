@@ -20,5 +20,4 @@ height:70px;
 display: flex;
 flex-direction: row-reverse
 }
-margin-bottom: 50px;
 `

@@ -4,8 +4,8 @@ import BusinessIcon from "@mui/icons-material/Business";
 import { Icondiv } from "./Icondiv";
 import { Bookingcss } from "./Bookingcss";
 import {Fromto} from "./Fromto";
-import {MultipleSlidesExample} from './Slidebar'
-
+import {MultipleSlidesExample,BigSlidesExample} from './Slidebar'
+import {Bigslide} from './Slidecss'
 // import {MultipleSlidesExample} from './Slidebar'
 export const Main = () => {
   return (
@@ -61,7 +61,22 @@ export const Main = () => {
          <Fromto/>
         </Bookingcss>
       </Navbar>
-      <div style={{width: '90%' , margin: 'auto'}}><MultipleSlidesExample/></div>
+     <div style={{width: '100%' , background: '#ebe7e7', paddingTop: '50px'}}>
+     <div style={{width: '90%' , margin: 'auto'}}><MultipleSlidesExample/></div>
+      <Bigslide>
+        <div className="supreoffers">
+          <h1>Super Offers</h1>
+          <div>
+            <h3>ALL OFFERS</h3>
+            <h3>BANK OFFERS</h3>
+            <h3>DOMESTIC FLIGHTS</h3>
+            <h3>MORE</h3>
+          </div>
+        </div>
+      <BigSlidesExample className="bigslideex"></BigSlidesExample>
+     
+      </Bigslide>
+     </div>
     </div>
   );
 };

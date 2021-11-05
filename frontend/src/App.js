@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <Main/>
       {/* <Smallslide/> */}
+      
     </div>
   );
 }
