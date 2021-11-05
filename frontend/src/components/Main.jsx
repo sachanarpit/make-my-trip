@@ -3,9 +3,9 @@ import { Smallbutton } from "./Smallbutton";
 import BusinessIcon from "@mui/icons-material/Business";
 import { Icondiv } from "./Icondiv";
 import { Bookingcss } from "./Bookingcss";
-import {Fromto} from "./Fromto";
-import {MultipleSlidesExample,BigSlidesExample} from './Slidebar'
-import {Bigslide} from './Slidecss'
+import { Fromto } from "./Fromto";
+import { MultipleSlidesExample, BigSlidesExample } from './Slidebar'
+import { Bigslide, TripMoney } from './Slidecss'
 // import {MultipleSlidesExample} from './Slidebar'
 export const Main = () => {
   return (
@@ -58,25 +58,55 @@ export const Main = () => {
             </div>
             <div>INTERNATIONAL FLIGHTS | DOMESTIC FLIGHTS</div>
           </div>
-         <Fromto/>
+          <Fromto />
         </Bookingcss>
       </Navbar>
-     <div style={{width: '100%' , background: '#ebe7e7', paddingTop: '50px'}}>
-     <div style={{width: '90%' , margin: 'auto'}}><MultipleSlidesExample/></div>
-      <Bigslide>
-        <div className="supreoffers">
-          <h1>Super Offers</h1>
-          <div>
-            <h3>ALL OFFERS</h3>
-            <h3>BANK OFFERS</h3>
-            <h3>DOMESTIC FLIGHTS</h3>
-            <h3>MORE</h3>
+      <div style={{ background: '#ebe7e7', paddingTop: '50px' }}>
+        <div style={{ width: '90%', margin: 'auto' }}><MultipleSlidesExample /></div>
+        <Bigslide>
+          <div className="supreoffers">
+            <h1>Super Offers</h1>
+            <div>
+              <h3>ALL OFFERS</h3>
+              <h3>BANK OFFERS</h3>
+              <h3>DOMESTIC FLIGHTS</h3>
+              <h3>MORE</h3>
+            </div>
           </div>
-        </div>
-      <BigSlidesExample className="bigslideex"></BigSlidesExample>
-     
-      </Bigslide>
-     </div>
+          <BigSlidesExample className="bigslideex"></BigSlidesExample>
+        </Bigslide>
+        <TripMoney>
+          <div className="maindiv">
+            <div id="div2" style={{ borderColor: '#e47dad' }}>
+              <img src="https://www.tripmoney.com/ext/static/TravelLoan/travelLoan.png" alt="" />
+              <div>
+                <div className="spa1n"></div>
+                <h3>Personal loan</h3>
+                <p>Get upto ₹1 lakh for booking flights, hotels & more.</p>
+              </div>
+              <div className="span2"></div>
+            </div>
+            <div id="div2" style={{ borderColor: '#dde47d' }}>
+              <img src="https://www.tripmoney.com/ext/static/credit-card/cc@3x.png" alt="" />
+              <div>
+                <div className="spa1n"></div>
+                <h3>Credit cards</h3>
+                <p>Get instant approval & unmatched privileges.</p>
+              </div>
+              <div className="span2"></div>
+            </div>
+            <div id="div2" style={{ borderColor: '#7dbee4' }}>
+              <img src="https://www.tripmoney.com/ext/static/PL/pl.png" alt="" />
+              <div>
+                <div className="spa1n"></div>
+                <h3>Travel loan</h3>
+                <p>Get approval for ₹30,00,000 at low interest rates.</p>
+              </div>
+              <div className="span2"></div>
+            </div>
+          </div>
+        </TripMoney>
+      </div>
     </div>
   );
 };

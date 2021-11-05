@@ -11,7 +11,7 @@ flex-direction: row;
 gap: 20px;
 padding: 4%;
 margin-bottom: 5px;
-` 
+`
 
 export const Bigslide = styled.div`
 height: 350px;
@@ -93,8 +93,8 @@ margin-top: 50px;
     }
     h4{
         font-size: 18px;
-        top: -30px;
-        right: 15px;
+        top: -45px;
+        right: 20px;
         color: #2b3cd1;
         text-align: right;
         position: relative;
@@ -106,5 +106,85 @@ margin-top: 50px;
         position: relative;
         top: -55px;
     }
+}
+`
+
+export const TripMoney = styled.div`
+width: 88%;
+margin: auto;
+.maindiv{
+    height: 130px;
+margin-top: 100px;
+color:#4a4a4a;
+display: flex;
+font-size: 14px;
+#div2{
+align-items: center;
+background-color: #ffffff;
+border-radius: 6px;
+border-style: solid ;
+border-width: 2px 2px 2px 40px;
+display: flex;
+font-size: 14px;
+margin: 0px 10px 20px 0px;
+padding: 0px 15px 0px 50px;
+    img{
+        width: 61px;
+        height: 61px;
+        padding: 5px;
+        position: relative;
+        left: -80px;
+    }
+    p{
+        color:#4a4a4a;
+font-size: 14px;
+line-height: 18px;
+position: relative;
+top: -5px;
+left: -60px;
+    }
+    h3{
+        font-size: 20px;
+font-weight: 900;
+line-height: 20px;
+position: relative;
+
+        left: -60px;
+margin:0px 0px 3px;
+    }
+}
+.spa1n{
+    background-image:
+url("https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/landingSprite@13x.webp");
+background-position:
+-106px -559px;
+position: relative;
+left: -60px;
+background-size:
+200px 600px;
+color:
+#4a4a4a;
+width: 90px;
+height: 20px;
+font-size:
+0px;
+}
+.span2{
+    background-image:
+url("https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/landingSprite@13x.webp");
+background-position: -174px -86px;
+background-size:200px 600px;
+width: 38px;
+height: 10px;
+color: #008cff;
+display: inline-block;
+font-size: 0px;
+font-weight: 900;
+position: relative;
+left: -20px;
+line-height: 14px;
+margin: 0px 0px 0px 10px;
+text-transform: uppercase;
+}
 }
 `
