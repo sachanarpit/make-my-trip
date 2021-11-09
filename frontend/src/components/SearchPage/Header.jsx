@@ -9,7 +9,6 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import DownhillSkiingIcon from "@mui/icons-material/DownhillSkiing";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import styled from "styled-components";
-import { useState } from "react";
 const Icondivcss = styled.div`
   .icondiv {
     height: 60px;
@@ -18,10 +17,9 @@ const Icondivcss = styled.div`
     background-color: white;
     display: flex;
     flex-direction: row;
-    position: fixed;
+    position: sticky;
     z-index: 100;
     text-align: center;
-    box-shadow: 1px 3px 5px #c0c0c0;
     .icons {
       display: flex;
       flex-direction: row;
@@ -45,9 +43,6 @@ const Icondivcss = styled.div`
         color: #2db0fc;
       }
     }
-  }
-  .disnone {
-    display: none;
   }
   .imgdiv {
     position: relative;
@@ -76,18 +71,9 @@ const Icondivcss = styled.div`
 `;
 
 export const Header = () => {
-  const [nav, setNav] = useState(false);
-  const handleChange = () => {
-    if (window.scrollY >= 100) {
-      setNav(true);
-    } else {
-      setNav(false);
-    }
-  };
-  window.addEventListener("scroll", handleChange);
   return (
     <Icondivcss>
-      <div className={nav ? "icondiv" : "disnone"}>
+      <div className="icondiv">
         <div className="imgdiv">
           <img
             src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png"

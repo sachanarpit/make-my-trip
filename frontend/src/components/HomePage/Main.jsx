@@ -8,12 +8,12 @@ import { MultipleSlidesExample, BigSlidesExample } from "./Slidebar";
 import { Bigslide, TripMoney } from "./Slidecss";
 import { Bottom } from "./Bottom";
 import { Header } from "./Header";
+import {Link} from 'react-router-dom'
 // import {MultipleSlidesExample} from './Slidebar'
 export const Main = () => {
   return (
     <div>
-      <Header>
-      </Header>
+      <Header></Header>
       <Navbar>
         <div className="topdiv">
           <img
@@ -26,6 +26,9 @@ export const Main = () => {
             src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png"
             alt=""
           />
+          <div className="login">
+            <p><Link to="search">Login or Create Account</Link></p>
+          </div>
           <Smallbutton>
             <div className="smallbuttonpic">
               <BusinessIcon></BusinessIcon>
