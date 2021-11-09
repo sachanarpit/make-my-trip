@@ -4,12 +4,16 @@ import BusinessIcon from "@mui/icons-material/Business";
 import { Icondiv } from "./Icondiv";
 import { Bookingcss } from "./Bookingcss";
 import { Fromto } from "./Fromto";
-import { MultipleSlidesExample, BigSlidesExample } from './Slidebar'
-import { Bigslide, TripMoney } from './Slidecss'
+import { MultipleSlidesExample, BigSlidesExample } from "./Slidebar";
+import { Bigslide, TripMoney } from "./Slidecss";
+import { Bottom } from "./Bottom";
+import { Header } from "./Header";
 // import {MultipleSlidesExample} from './Slidebar'
 export const Main = () => {
   return (
     <div>
+      <Header>
+      </Header>
       <Navbar>
         <div className="topdiv">
           <img
@@ -61,8 +65,10 @@ export const Main = () => {
           <Fromto />
         </Bookingcss>
       </Navbar>
-      <div style={{ background: '#ebe7e7', paddingTop: '50px' }}>
-        <div style={{ width: '90%', margin: 'auto' }}><MultipleSlidesExample /></div>
+      <div style={{ background: "#ebe7e7", paddingTop: "50px" }}>
+        <div style={{ width: "90%", margin: "auto" }}>
+          <MultipleSlidesExample />
+        </div>
         <Bigslide>
           <div className="supreoffers">
             <h1>Super Offers</h1>
@@ -77,8 +83,11 @@ export const Main = () => {
         </Bigslide>
         <TripMoney>
           <div className="maindiv">
-            <div id="div2" style={{ borderColor: '#e47dad' }}>
-              <img src="https://www.tripmoney.com/ext/static/TravelLoan/travelLoan.png" alt="" />
+            <div id="div2" style={{ borderColor: "#e47dad" }}>
+              <img
+                src="https://www.tripmoney.com/ext/static/TravelLoan/travelLoan.png"
+                alt=""
+              />
               <div>
                 <div className="spa1n"></div>
                 <h3>Personal loan</h3>
@@ -86,8 +95,11 @@ export const Main = () => {
               </div>
               <div className="span2"></div>
             </div>
-            <div id="div2" style={{ borderColor: '#dde47d' }}>
-              <img src="https://www.tripmoney.com/ext/static/credit-card/cc@3x.png" alt="" />
+            <div id="div2" style={{ borderColor: "#dde47d" }}>
+              <img
+                src="https://www.tripmoney.com/ext/static/credit-card/cc@3x.png"
+                alt=""
+              />
               <div>
                 <div className="spa1n"></div>
                 <h3>Credit cards</h3>
@@ -95,8 +107,11 @@ export const Main = () => {
               </div>
               <div className="span2"></div>
             </div>
-            <div id="div2" style={{ borderColor: '#7dbee4' }}>
-              <img src="https://www.tripmoney.com/ext/static/PL/pl.png" alt="" />
+            <div id="div2" style={{ borderColor: "#7dbee4" }}>
+              <img
+                src="https://www.tripmoney.com/ext/static/PL/pl.png"
+                alt=""
+              />
               <div>
                 <div className="spa1n"></div>
                 <h3>Travel loan</h3>
@@ -106,6 +121,7 @@ export const Main = () => {
             </div>
           </div>
         </TripMoney>
+        <Bottom />
       </div>
     </div>
   );
