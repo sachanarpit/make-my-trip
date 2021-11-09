@@ -1,0 +1,10 @@
+.otp-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .title-otp > h1,
+  p {
+    margin: 5px 0;
+  }
+  
