@@ -12,10 +12,9 @@ export const LoginPanel = ({ handleClick,handleStatus }) => {
 
   const handleOtpStatus = (user) => {
     if (user.length >= 10) console.log(user.length);
+    
     setOtpStatus(true);
   };
-
-  
 
   const handleVer = () => {
     console.log("verified")
@@ -34,7 +33,7 @@ export const LoginPanel = ({ handleClick,handleStatus }) => {
         <div className="close">
           <span onClick={handleClick}>X</span>
         </div>
-        { verified ? null:otpStatus ? (
+        { verified ? alert("success"):otpStatus ? (
           <ConfirmOtp handleVer={handleVer} />
         ) :(
           <LoginForm handleOtpStatus={handleOtpStatus} />

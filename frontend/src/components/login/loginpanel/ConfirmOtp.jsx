@@ -2,9 +2,11 @@ import React from "react";
 import { useState } from "react";
 import "./confirmOtp.css";
 export const ConfirmOtp = ({handleVer}) => {
+
   const [otp, setOtp] = useState("");
-  
+
   const handleClick = () => {
+    console.log("inside")
     handleVer();
   };
 
@@ -22,8 +24,7 @@ export const ConfirmOtp = ({handleVer}) => {
           placeholder="Enter OTP here"
         />
       </div>
-      <button className="cbtn" onClick={handleClick}>
-        {" "}
+      <button className="cbtn" onClick={handleClick} >
         Verify & create Account
       </button>
     </div>
