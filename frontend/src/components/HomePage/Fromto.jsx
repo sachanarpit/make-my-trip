@@ -1,38 +1,62 @@
+import { useEffect, useState } from "react";
 import { Fromtocss } from "./Fromtocss";
+
 export const Fromto = () => {
+  const [text, setText] = useState([]);
+
+  useEffect(() => {
+    let promise = async () => {
+      const data = await fetch(
+        "https://raw.githubusercontent.com/ashhadulislam/JSON-Airports-India/master/airports.json"
+      );
+      const ans = await data.json();
+      console.log(ans);
+      setText(ans.airports);
+    };
+    promise();
+  }, []);
   return (
     <Fromtocss>
       <div className="fromtodiv">
-<div>
-    <h3>FROM</h3>
-    <select name="" id="">
-        <option value="">Banglore</option>
-    </select>
-</div>
-<div>
-    <h3>TO</h3>
-    <select name="" id="">
-    <option value="">Delhi</option>
-    </select>
-</div>
-    </div>
+        <div>
+          <h3>FROM</h3>
+          <select name="" id="">
+            {text.map((e) => (
+              <option value="" key={e.IATA_code}>
+                {e.city_name} ➤ {e.airport_name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <h3>TO</h3>
+          <select name="" id="">
+            <option value="">Delhi</option>
+            {text.map((e) => (
+              <option value="" key={e.IATA_code}>
+                {e.city_name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
       <div className="fromtodiv2">
-      <div>
-    <h3>DEPARTURE</h3>
-    <input type="date" className="date"/>
-</div>
-<div>
-    <h3>TO</h3>
-    <select name="" id="">
-    <option value="">Delhi</option>
-    </select>
-</div>
-<div>
-    <h3>TO</h3>
-    <select name="" id="">
-    <option value="">Delhi</option>
-    </select>
-</div>
+        <div>
+          <h3>DEPARTURE</h3>
+          <input type="date" className="date" />
+        </div>
+        <div>
+          <h3>TO</h3>
+          <select name="" id="">
+            <option value="">Delhi</option>
+          </select>
+        </div>
+        <div>
+          <h3>TO</h3>
+          <select name="" id="">
+            <option value="">Delhi</option>
+          </select>
+        </div>
       </div>
     </Fromtocss>
   );
