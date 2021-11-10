@@ -9,8 +9,21 @@ import { Bigslide, TripMoney } from "./Slidecss";
 import { Bottom } from "./Bottom";
 import { Header } from "./Header";
 import {Link} from 'react-router-dom'
-// import {MultipleSlidesExample} from './Slidebar'
+import {useState} from 'react'
 export const Main = () => {
+  const [data,setData] = useState({
+    from: '',
+    to: ""
+  })
+const handleData = (e)=>{
+  const {name,value} = e.target;
+  setData({...data,
+  [name] : value
+  })
+}
+const handleButton = ()=>{
+  console.log(data);
+}
   return (
     <div>
       <Header></Header>
@@ -27,7 +40,7 @@ export const Main = () => {
             alt=""
           />
           <div className="login">
-            <p><Link to="search">Login or Create Account</Link></p>
+            <p>Login or Create Account</p>
           </div>
           <Smallbutton>
             <div className="smallbuttonpic">
@@ -65,8 +78,9 @@ export const Main = () => {
             </div>
             <div>INTERNATIONAL FLIGHTS | DOMESTIC FLIGHTS</div>
           </div>
-          <Fromto />
+          <Fromto handleChange={handleData} />
         </Bookingcss>
+          <div className="button"><button onClick={handleButton}>SEARCH</button></div>
       </Navbar>
       <div style={{ background: "#ebe7e7", paddingTop: "50px" }}>
         <div style={{ width: "90%", margin: "auto" }}>

@@ -17,6 +17,7 @@
     "react-router-dom": "^6.0.1",
     "react-scripts": "4.0.3",
     "react-slideshow-image": "^3.6.0",
+    "rsuite": "^5.2.0",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.1.2"
   },

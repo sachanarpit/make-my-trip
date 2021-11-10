@@ -1,27 +1,38 @@
 import { Header } from "./Header";
 import { SearchBox } from "./SearchBox";
 import { Bottom } from "./Bottom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import { nanoid } from 'nanoid'
 import axios from "axios";
 export const Search = () => {
   const [dataa, setData] = useState([]);
-  const handleData = async () => {
+  const handleSelect = async (select) => {
     let { data } = await axios.get(
-      "https://raw.githubusercontent.com/sachanarpit/make-my-trip/dharmesh/frontend/db.json"
+      "http://api.aviationstack.com/v1/flights?limit=100",
+      {
+        params: {
+          dep_iata: select.from,
+          arr_iata: select.to,
+          access_key: "c6b8626fdfe694d58f25cc5053276ee1",
+        },
+      }
     );
     data = data.data;
-  setData(data)
+    console.log(select);
+    setData(data);
   };
 
-  useEffect(() => {
-    handleData();
-  }, []);
+  // useEffect(() => {
+  //   handleData();
+  // }, []);
+  const bookData = (e) => {
+    console.log(e);
+  };
   return (
     <>
       <Header />
-      <SearchBox />
-      <Bottom data={dataa} />
+      <SearchBox handle={handleSelect} />
+      <Bottom data={dataa} bookData={bookData} />
     </>
   );
 };
