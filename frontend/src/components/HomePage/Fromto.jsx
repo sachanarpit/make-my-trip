@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Fromtocss } from "./Fromtocss";
 
-export const Fromto = () => {
+export const Fromto = ({handleChange}) => {
   const [text, setText] = useState([]);
-
   useEffect(() => {
     let promise = async () => {
       const data = await fetch(
@@ -19,7 +18,7 @@ export const Fromto = () => {
       <div className="fromtodiv">
         <div>
           <h3>FROM</h3>
-          <select name="" id="">
+          <select onChange={handleChange} name="from" id="">
             {text.map((e) => (
               <option value={e.IATA_code} key={e.IATA_code}>
                 {e.city_name}
@@ -29,7 +28,7 @@ export const Fromto = () => {
         </div>
         <div>
           <h3>TO</h3>
-          <select name="" id="">
+          <select onChange={handleChange} name="to" id="">
             {text.map((e) => (
               <option value={e.IATA_code} key={e.IATA_code}>
                 {e.city_name}
