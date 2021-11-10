@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { nanoid } from 'nanoid'
+import { nanoid } from "nanoid";
 const Style = styled.div`
   display: grid;
   grid-template-columns: 30% 70%;
@@ -51,6 +51,7 @@ const Style = styled.div`
         }
         .two {
           display: flex;
+          text-align: center;
           flex-direction: column;
           line-height: 10px;
           /* align-items: center; */
@@ -146,61 +147,85 @@ const Style = styled.div`
     }
   }
 `;
-export const Bottom = ({data}) => {
+export const Bottom = ({ data }) => {
   const [set, setItem] = useState(false);
   return (
     <Style>
       <div className="filters"></div>
       <div className="allData">
         <h1>Flight from HongKong to Bengluru</h1>
-       {data.map((e)=>( <div key={nanoid(6)} className="maping">
-          <div className="div1">
-            <div className="one">
-              {console.log(e)}
-              <img
-                src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SQ.png?v=7"
-                alt=""
-              />
-              <p>{e.airline.name}</p>
+        {data.map((e) => (
+          <div key={nanoid(6)} className="maping">
+            <div className="div1">
+              <div className="one">
+                {console.log(e)}
+                <img
+                  src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SQ.png?v=7"
+                  alt=""
+                />
+                <p>{e.airline.name}</p>
+              </div>
+              <div className="two">
+                <h5>{e.departure.scheduled.split("T")[1].split("+")[0]}</h5>
+                <p>{e.arrival.iata}</p>
+              </div>
+              <div className="three">
+                <p>
+                  {+e.arrival.scheduled
+                    .split("T")[1]
+                    .split("+")[0]
+                    .split(":")[0] -
+                    Number(
+                      e.departure.scheduled
+                        .split("T")[1]
+                        .split("+")[0]
+                        .split(":")[0]
+                    ) +
+                    ":" + (+e.arrival.scheduled
+                    .split("T")[1]
+                    .split("+")[0]
+                    .split(":")[1] -
+                    Number(
+                      e.departure.scheduled
+                        .split("T")[1]
+                        .split("+")[0]
+                        .split(":")[1]
+                    ))
+                   }
+                </p>
+                <div></div>
+                <span>1 stop via bengluru</span>
+              </div>
+              <div className="two">
+                <h5>{e.arrival.scheduled.split("T")[1].split("+")[0]}</h5>
+                <p>{e.departure.iata}</p>
+              </div>
+              <h4>{+e.departure.delay === 0 ? "5050" : +e.departure.delay * 200}</h4>
+              <button
+                onClick={() => {
+                  setItem(!set ? true : false);
+                }}
+              >
+                View price
+              </button>
             </div>
-            <div className="two">
-              <h5>{e.departure}</h5>
-              <p>{e.arrival.iata}</p>
+            <div className="div2">
+              Travel to India is open for all Indian passport holders, OCI & PIO
+              cardholders holding passports of any country and all foreign
+              nationals who wish to visit India for any purpose (including their
+              dependents on appropriate category of dependent visa) except those
+              on Tourist Visa. Please read the 'Important Information' section
+              on the next screen before booking your flight.
             </div>
-            <div className="three">
-              <p>Hours</p>
-              <div></div>
-              <span>1 stop via bengluru</span>
+            <div className="div3">
+              <p>Easily Refundable</p>
+              <p>View Flight Details</p>
             </div>
-            <div className="two">
-              <h5>12:10</h5>
-              <p>{e.departure.iata}</p>
+            <div className={set ? "hidden" : "none"}>
+              <div className="graydiv"></div>
             </div>
-            <h4>121212$</h4>
-            <button
-              onClick={() => {
-                setItem(!set ? true : false);
-              }}
-            >
-              View price
-            </button>
           </div>
-          <div className="div2">
-            Travel to India is open for all Indian passport holders, OCI & PIO
-            cardholders holding passports of any country and all foreign
-            nationals who wish to visit India for any purpose (including their
-            dependents on appropriate category of dependent visa) except those
-            on Tourist Visa. Please read the 'Important Information' section on
-            the next screen before booking your flight.
-          </div>
-          <div className="div3">
-            <p>Easily Refundable</p>
-            <p>View Flight Details</p>
-          </div>
-          <div className={set ? "hidden" : "none"}>
-            <div className="graydiv"></div>
-          </div>
-        </div>))}
+        ))}
       </div>
     </Style>
   );
