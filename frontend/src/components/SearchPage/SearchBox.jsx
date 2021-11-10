@@ -58,7 +58,7 @@ const Style = styled.div`
         font-size: 14px;
         font-weight: 600;
         margin-left: 10px;
-        color: blue;
+        color: #2c98f1;
       }
       select {
         border: 0px;
