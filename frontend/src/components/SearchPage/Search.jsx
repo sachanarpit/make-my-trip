@@ -17,11 +17,14 @@ export const Search = () => {
   useEffect(() => {
     handleData();
   }, []);
+  const bookData = (e)=>{
+    console.log(e);
+  }
   return (
     <>
       <Header />
       <SearchBox />
-      <Bottom data={dataa} />
+      <Bottom data={dataa} bookData={bookData} />
     </>
   );
 };

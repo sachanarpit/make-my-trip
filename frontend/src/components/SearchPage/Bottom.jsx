@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
 import { nanoid } from "nanoid";
 const Style = styled.div`
   display: grid;
@@ -12,7 +11,16 @@ const Style = styled.div`
     margin-left: 100px;
     box-shadow: 0px 0px 4px #c9c8c8;
     position: relative;
+
     top: -140px;
+    .forfilter {
+      display: flex;
+      width: 80%;
+      margin: auto;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+    }
   }
   .allData {
     margin-right: 100px;
@@ -98,17 +106,20 @@ const Style = styled.div`
           top: -20px;
         }
         button {
-          width: 150px;
-          height: 34px;
-          padding: 0px 8px 0px 8px;
-          border: 1px solid blue;
-          border-radius: 20px;
-          color: blue;
-          background-color: rgb(173, 222, 255);
+          width: 130px;
+          height: 38px;
+          border-radius: 25px;
+          background: linear-gradient(
+            to right,
+            #8f92fa 0%,
+            #6165f0 50%,
+            #6c70eb 50%,
+            #3339e9 100%
+          );
+          border: none;
+          color: white;
           font-weight: 600;
-          font-size: 16px;
-          position: relative;
-          top: 10px;
+          font-size: 15px;
         }
       }
       .div2 {
@@ -136,29 +147,45 @@ const Style = styled.div`
         color: blue;
       }
     }
-    .hidden {
-      .graydiv {
-        height: 40px;
-        background-color: gray;
-      }
-    }
-    .none {
-      display: none;
-    }
   }
 `;
-export const Bottom = ({ data }) => {
-  const [set, setItem] = useState(false);
+export const Bottom = ({ data, bookData }) => {
   return (
     <Style>
-      <div className="filters"></div>
+      <div className="filters">
+        <div className="forfilter">
+          <input type="checkbox" />
+          <p>Non stop</p>
+        </div>
+        <div className="forfilter">
+          <input type="checkbox" />
+          <p>Non stop</p>
+        </div>
+        <div className="forfilter">
+          <input type="checkbox" />
+          <p>Non stop</p>
+        </div>
+        <div className="forfilter">
+          <input type="checkbox" />
+          <p>Non stop</p>
+        </div>
+        <div className="forfilter">
+          <input type="checkbox" />
+          <p>Non stop</p>
+        </div>
+        <div className="forfilter">
+        <h4>One way price</h4>
+        </div>
+        <div className="forfilter">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>
+        </div>
+      </div>
       <div className="allData">
         <h1>Flight from HongKong to Bengluru</h1>
         {data.map((e) => (
           <div key={nanoid(6)} className="maping">
             <div className="div1">
               <div className="one">
-                {console.log(e)}
                 <img
                   src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SQ.png?v=7"
                   alt=""
@@ -181,17 +208,17 @@ export const Bottom = ({ data }) => {
                         .split("+")[0]
                         .split(":")[0]
                     ) +
-                    ":" + (+e.arrival.scheduled
-                    .split("T")[1]
-                    .split("+")[0]
-                    .split(":")[1] -
-                    Number(
-                      e.departure.scheduled
-                        .split("T")[1]
-                        .split("+")[0]
-                        .split(":")[1]
-                    ))
-                   }
+                    ":" +
+                    (+e.arrival.scheduled
+                      .split("T")[1]
+                      .split("+")[0]
+                      .split(":")[1] -
+                      Number(
+                        e.departure.scheduled
+                          .split("T")[1]
+                          .split("+")[0]
+                          .split(":")[1]
+                      ))}
                 </p>
                 <div></div>
                 <span>1 stop via bengluru</span>
@@ -200,13 +227,17 @@ export const Bottom = ({ data }) => {
                 <h5>{e.arrival.scheduled.split("T")[1].split("+")[0]}</h5>
                 <p>{e.departure.iata}</p>
               </div>
-              <h4>{+e.departure.delay === 0 ? "5050" : +e.departure.delay * 200}</h4>
+              <h4>
+                {+e.departure.delay === 0
+                  ? "₹5050"
+                  : "₹" + e.departure.delay * 200}
+              </h4>
               <button
                 onClick={() => {
-                  setItem(!set ? true : false);
+                  bookData(e);
                 }}
               >
-                View price
+                BOOK NOW
               </button>
             </div>
             <div className="div2">
@@ -220,9 +251,6 @@ export const Bottom = ({ data }) => {
             <div className="div3">
               <p>Easily Refundable</p>
               <p>View Flight Details</p>
-            </div>
-            <div className={set ? "hidden" : "none"}>
-              <div className="graydiv"></div>
             </div>
           </div>
         ))}
