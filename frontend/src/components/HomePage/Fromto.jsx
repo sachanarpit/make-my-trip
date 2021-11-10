@@ -22,7 +22,7 @@ export const Fromto = () => {
           <h3>FROM</h3>
           <select name="" id="">
             {text.map((e) => (
-              <option value="" key={e.IATA_code}>
+              <option value={e.IATA_code} key={e.IATA_code}>
                 {e.city_name} ➤ {e.airport_name}
               </option>
             ))}
@@ -33,8 +33,8 @@ export const Fromto = () => {
           <select name="" id="">
             <option value="">Delhi</option>
             {text.map((e) => (
-              <option value="" key={e.IATA_code}>
-                {e.city_name}
+              <option value={e.IATA_code} key={e.IATA_code}>
+                {e.city_name} ➤ {e.airport_name}
               </option>
             ))}
           </select>
