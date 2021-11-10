@@ -99,7 +99,10 @@ const Style = styled.div`
 }
 `;
 
-export const SearchBox = () => {
+export const SearchBox = ({handle}) => {
+  const handleButton = ()=>{
+    handle()
+  }
     const [nav, setNav] = useState(false);
     const handleChange = () => {
       if (window.scrollY >= 10) {
@@ -149,7 +152,9 @@ export const SearchBox = () => {
             <option value="one way">Oneway</option>
           </select>
         </div>
-        <button>SEARCH</button>
+        <button onClick={()=>{
+          handleButton()
+        }}>SEARCH</button>
       </div>
       </div>
     </Style>
