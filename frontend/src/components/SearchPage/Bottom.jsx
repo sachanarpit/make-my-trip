@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { nanoid } from 'nanoid'
 const Style = styled.div`
   display: grid;
   grid-template-columns: 30% 70%;
@@ -147,19 +148,15 @@ const Style = styled.div`
 `;
 export const Bottom = ({data}) => {
   const [set, setItem] = useState(false);
-  let  min = Math.ceil(1);
-  let  max = Math.floor(24);
-  let minute= Math.floor(60)
-  // let random = Math.floor(Math.random() * (max - min) + min)
   return (
     <Style>
       <div className="filters"></div>
       <div className="allData">
         <h1>Flight from HongKong to Bengluru</h1>
-        {console.log(data)}
-       {/* {data.map((e)=>( <div key={e.id} className="maping">
+       {data.map((e)=>( <div key={nanoid(6)} className="maping">
           <div className="div1">
             <div className="one">
+              {console.log(e)}
               <img
                 src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SQ.png?v=7"
                 alt=""
@@ -167,7 +164,7 @@ export const Bottom = ({data}) => {
               <p>{e.airline.name}</p>
             </div>
             <div className="two">
-              <h5>{Math.floor(Math.random() * (max - min) + min)+':'+ Math.floor(Math.random() * (minute - min) + min)}</h5>
+              <h5>{e.departure}</h5>
               <p>{e.arrival.iata}</p>
             </div>
             <div className="three">
@@ -176,7 +173,7 @@ export const Bottom = ({data}) => {
               <span>1 stop via bengluru</span>
             </div>
             <div className="two">
-              <h5>{Math.floor(Math.random() * (max - min) + min)+':'+ Math.floor(Math.random() * (minute - min) + min)}</h5>
+              <h5>12:10</h5>
               <p>{e.departure.iata}</p>
             </div>
             <h4>121212$</h4>
@@ -203,7 +200,7 @@ export const Bottom = ({data}) => {
           <div className={set ? "hidden" : "none"}>
             <div className="graydiv"></div>
           </div>
-        </div>))} */}
+        </div>))}
       </div>
     </Style>
   );
