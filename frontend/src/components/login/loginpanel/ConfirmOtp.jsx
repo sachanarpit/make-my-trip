@@ -18,7 +18,7 @@ export const ConfirmOtp = ({handleVer}) => {
         <h1>Enter OTP</h1>
         <p>OTP has been sent to your Mobile</p>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="otpcnf-form">
 
       <div className="inp">
         <input

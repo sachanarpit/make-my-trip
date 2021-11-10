@@ -5,16 +5,22 @@ import { LoginForm } from "./LoginForm";
 import { ConfirmOtp } from "./ConfirmOtp";
 
 export const LoginPanel = ({ handleClick,handleStatus }) => {
-  const [otpStatus, setOtpStatus] = useState(false);
-  const [user, setUser] = useState({});
+  const [otpSend, setOtpSend] = useState(false);
+  const [newUser, setNewUser] = useState(null);
   const [verified, setVerified] = useState(false);
   
 
-  const handleOtpStatus = (user) => {
-    if (user.length >= 10) console.log(user.length);
-    
-    setOtpStatus(true);
+  const handleOtpSend = (user) => {
+
+    console.log(user)
+
+    //setNewUser(user);
+
+    setOtpSend(true);
   };
+  const handleUser = ()=>{
+
+  }
 
   const handleVer = () => {
     console.log("verified")
@@ -33,10 +39,10 @@ export const LoginPanel = ({ handleClick,handleStatus }) => {
         <div className="close">
           <span onClick={handleClick}>X</span>
         </div>
-        { verified ? alert("success"):otpStatus ? (
+        { verified ? alert("success"):otpSend ? (
           <ConfirmOtp handleVer={handleVer} />
         ) :(
-          <LoginForm handleOtpStatus={handleOtpStatus} />
+          <LoginForm handleOtpStatus={handleOtpSend} />
         )}
       </div>
     </div>
