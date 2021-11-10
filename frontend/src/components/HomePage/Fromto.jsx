@@ -31,7 +31,6 @@ export const Fromto = () => {
         <div>
           <h3>TO</h3>
           <select name="" id="">
-            <option value="">Delhi</option>
             {text.map((e) => (
               <option value={e.IATA_code} key={e.IATA_code}>
                 {e.city_name} ➤ {e.airport_name}
