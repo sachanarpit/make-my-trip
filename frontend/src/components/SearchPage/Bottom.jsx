@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { nanoid } from "nanoid";
+import { useState } from "react";
 const Style = styled.div`
   display: grid;
   grid-template-columns: 30% 70%;
@@ -7,7 +8,7 @@ const Style = styled.div`
   background-color: #e4e4e4;
   .filters {
     background-color: white;
-    height: 600px;
+    height: 500px;
     margin-left: 100px;
     box-shadow: 0px 0px 4px #c9c8c8;
     position: relative;
@@ -150,6 +151,11 @@ const Style = styled.div`
   }
 `;
 export const Bottom = ({ data, bookData }) => {
+  const [slide,setSlide] = useState('')
+  const handleSlider = (e)=>{
+   setSlide(e.target.value)
+   console.log(slide);
+  }
   return (
     <Style>
       <div className="filters">
@@ -177,7 +183,7 @@ export const Bottom = ({ data, bookData }) => {
         <h4>One way price</h4>
         </div>
         <div className="forfilter">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>
+        <input type="range" min="1000" max="10000" value={handleSlider} class="slider" id="myRange"/>
         </div>
       </div>
       <div className="allData">
@@ -194,7 +200,7 @@ export const Bottom = ({ data, bookData }) => {
               </div>
               <div className="two">
                 <h5>{e.departure.scheduled.split("T")[1].split("+")[0]}</h5>
-                <p>{e.arrival.iata}</p>
+                <p>{e.departure.iata}</p>
               </div>
               <div className="three">
                 <p>
@@ -208,7 +214,7 @@ export const Bottom = ({ data, bookData }) => {
                         .split("+")[0]
                         .split(":")[0]
                     ) +
-                    ":" +
+                    " hours " +
                     (+e.arrival.scheduled
                       .split("T")[1]
                       .split("+")[0]
@@ -218,14 +224,15 @@ export const Bottom = ({ data, bookData }) => {
                           .split("T")[1]
                           .split("+")[0]
                           .split(":")[1]
-                      ))}
+                      )+ " minutes"
+                      )}
                 </p>
                 <div></div>
-                <span>1 stop via bengluru</span>
+                <span>Safe Journey</span>
               </div>
               <div className="two">
                 <h5>{e.arrival.scheduled.split("T")[1].split("+")[0]}</h5>
-                <p>{e.departure.iata}</p>
+                <p>{e.arrival.iata}</p>
               </div>
               <h4>
                 {+e.departure.delay === 0

@@ -9,7 +9,6 @@ import { Bigslide, TripMoney } from "./Slidecss";
 import { Bottom } from "./Bottom";
 import { Header } from "./Header";
 import {Link} from 'react-router-dom'
-// import {MultipleSlidesExample} from './Slidebar'
 export const Main = () => {
   return (
     <div>
@@ -27,7 +26,7 @@ export const Main = () => {
             alt=""
           />
           <div className="login">
-            <p><Link to="search">Login or Create Account</Link></p>
+            <p>Login or Create Account</p>
           </div>
           <Smallbutton>
             <div className="smallbuttonpic">
@@ -67,6 +66,7 @@ export const Main = () => {
           </div>
           <Fromto />
         </Bookingcss>
+          <div className="button"><Link to="/search" ><button>SEARCH</button></Link></div>
       </Navbar>
       <div style={{ background: "#ebe7e7", paddingTop: "50px" }}>
         <div style={{ width: "90%", margin: "auto" }}>

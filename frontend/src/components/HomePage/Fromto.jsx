@@ -10,7 +10,6 @@ export const Fromto = () => {
         "https://raw.githubusercontent.com/ashhadulislam/JSON-Airports-India/master/airports.json"
       );
       const ans = await data.json();
-      console.log(ans);
       setText(ans.airports);
     };
     promise();
@@ -23,7 +22,7 @@ export const Fromto = () => {
           <select name="" id="">
             {text.map((e) => (
               <option value={e.IATA_code} key={e.IATA_code}>
-                {e.city_name} ➤ {e.airport_name}
+                {e.city_name}
               </option>
             ))}
           </select>
@@ -33,7 +32,7 @@ export const Fromto = () => {
           <select name="" id="">
             {text.map((e) => (
               <option value={e.IATA_code} key={e.IATA_code}>
-                {e.city_name} ➤ {e.airport_name}
+                {e.city_name}
               </option>
             ))}
           </select>
