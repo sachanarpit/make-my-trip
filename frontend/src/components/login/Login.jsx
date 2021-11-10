@@ -4,13 +4,23 @@ import { LoginPanel } from "./loginpanel/LoginPanel";
 export const Login = () => {
   const [status, setStatus] = useState(false);
   const [user, setUser] = useState({ name: "Rahul Kumar" });
+  const [newUser, setNewUser] = useState(null);
+
   const handleClick = () => {
     const popup = document.getElementById("popup");
     popup.classList.toggle("active");
   };
+
   const handleStatus = () =>{
     handleClick();
     setStatus(true)
+  }
+
+  const handleUser = (newuser)=>{
+    console.log(newuser)
+setNewUser(newuser);
+
+console.log("22",newUser)
   }
 
 
@@ -30,7 +40,7 @@ export const Login = () => {
         )}
       </div>
       <div id="popup">
-        <LoginPanel handleClick={handleClick} handleStatus ={handleStatus} />
+        <LoginPanel handleClick={handleClick} handleStatus ={handleStatus} handleUser={handleUser}/>
       </div>
     </>
   );

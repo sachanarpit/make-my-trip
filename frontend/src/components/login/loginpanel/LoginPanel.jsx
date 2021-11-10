@@ -4,33 +4,27 @@ import { useState} from "react";
 import { LoginForm } from "./LoginForm";
 import { ConfirmOtp } from "./ConfirmOtp";
 
-export const LoginPanel = ({ handleClick,handleStatus }) => {
+export const LoginPanel = ({ handleClick,handleStatus, handleUser }) => {
   const [otpSend, setOtpSend] = useState(false);
-  const [newUser, setNewUser] = useState(null);
+
   const [verified, setVerified] = useState(false);
   
 
   const handleOtpSend = (user) => {
 
-    console.log(user)
-
-    //setNewUser(user);
+    //console.log(user)
 
     setOtpSend(true);
   };
-  const handleUser = ()=>{
 
-  }
 
   const handleVer = () => {
     console.log("verified")
-   setTimeout(()=>{
 
     setVerified(true);
     
-   },2000);
-
-   handleStatus();
+    handleStatus();
+      
   };
 
   return (

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./loginForm.css";
 export const LoginForm = ({ handleOtpStatus }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    mobile:""
+  });
 
   const handleChange = (e)=>{
     const {name, value} = e.target;
@@ -17,6 +19,8 @@ export const LoginForm = ({ handleOtpStatus }) => {
     else(alert("Invalid mobile number"))
    
   };
+
+ 
 
   return (
     <>
@@ -35,18 +39,17 @@ export const LoginForm = ({ handleOtpStatus }) => {
                 onChange={handleChange}
                 placeholder="987*****21"
                 name="mobile"
-                maxLength="10"
                 minLength="10"
                 required
               />
             </div>
-            {/* <p
+            <p
               className={
-                inp.length  === 10 || inp.length  === 0 ? "hide" : "indicate"
+                user.mobile.length  === 10 ||  user.mobile.length  === 0 ? "hide" : "indicate"
               }
             >
               Please enter a 10 digit valid Mobile Number.
-            </p> */}
+            </p>
           </div>
           <div>
             <input type="submit" className="cbtn" value="CONTINUE" />

@@ -3,12 +3,13 @@ import { useState } from "react";
 import "./confirmOtp.css";
 export const ConfirmOtp = ({handleVer}) => {
 
-  const [otp, setOtp] = useState("");
+  const [otp, setOtp] = useState(""); // 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
     if(otp.length==6) handleVer();
+    
     else{alert("Incorrect OTP")}
   };
 
