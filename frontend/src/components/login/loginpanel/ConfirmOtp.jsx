@@ -5,9 +5,11 @@ export const ConfirmOtp = ({handleVer}) => {
 
   const [otp, setOtp] = useState("");
 
-  const handleClick = () => {
-    console.log("inside")
-    handleVer();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if(otp.length==6) handleVer();
+    else{alert("Incorrect OTP")}
   };
 
   return (
@@ -16,18 +18,21 @@ export const ConfirmOtp = ({handleVer}) => {
         <h1>Enter OTP</h1>
         <p>OTP has been sent to your Mobile</p>
       </div>
+      <form onSubmit={handleSubmit}>
+
       <div className="inp">
         <input
           type="number"
           value={otp}
           onChange={(e) => setOtp(e.target.value)}
-          placeholder="Enter OTP here"
+          placeholder="OTP"
           required
         />
       </div>
-      <button className="cbtn" onClick={handleClick} >
+      <button className="cbtn" type="submit" >
         Verify & create Account
       </button>
+      </form>
     </div>
   );
 };
