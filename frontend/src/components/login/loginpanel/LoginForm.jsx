@@ -4,7 +4,9 @@ export const LoginForm = ({ handleOtpStatus }) => {
   const [inp, setInp] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleOtpStatus(inp);
+    if(inp.length === 10) handleOtpStatus(inp);
+    else(alert("Invalid mobile number"))
+
     setInp("");
   };
 
@@ -18,26 +20,26 @@ export const LoginForm = ({ handleOtpStatus }) => {
         <h1>Login/signup </h1>
         <form onSubmit={handleSubmit}>
           <div className="inp-wrap">
-            <label>Mobile</label>
+            <label>Enter Mobile Number</label>
             <div className="inp">
               <input
                 type="text"
                 onChange={(e) => setInp(e.target.value)}
-                placeholder="Enter mobile number"
+                placeholder="987*****21"
                 value={inp}
                 required
               />
             </div>
             <p
               className={
-                inp.length < 10 && inp.length > 0 ? "indicate" : "hide"
+                inp.length  === 10 || inp.length  === 0 ? "hide" : "indicate"
               }
             >
-              Please enter a valid Mobile Number.
+              Please enter a 10 digit valid Mobile Number.
             </p>
           </div>
           <div>
-            <input type="submit" className="cbtn" value="CONTINUE" />
+            <input type="submit" className="cbtn" value="CONTINUE" maxLength="10" minLength="10" />
           </div>
         </form>
         <p className="other-option">Or Login/Signup With</p>

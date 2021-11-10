@@ -22,6 +22,7 @@ export const ConfirmOtp = ({handleVer}) => {
           value={otp}
           onChange={(e) => setOtp(e.target.value)}
           placeholder="Enter OTP here"
+          required
         />
       </div>
       <button className="cbtn" onClick={handleClick} >
