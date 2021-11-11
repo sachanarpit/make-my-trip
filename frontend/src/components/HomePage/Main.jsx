@@ -11,6 +11,7 @@ import { Header } from "./Header";
 import {Link} from 'react-router-dom'
 import {SmallBottom} from './SmallBottom'
 import {useState} from 'react'
+import {FareTypes} from './FareTypes'
 export const Main = ({handleButton}) => {
   const [data,setData] = useState({
     from: '',
@@ -80,6 +81,7 @@ const addLocal = ()=>{
             <div>INTERNATIONAL FLIGHTS | DOMESTIC FLIGHTS</div>
           </div>
           <Fromto handleChange={handleData} />
+          <FareTypes/>
         </Bookingcss>
           <div className="button"><button onClick={addLocal}><Link to="/search">SEARCH</Link></button></div>
       </Navbar>
