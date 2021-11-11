@@ -12,11 +12,11 @@ const userSchema = new mongoose.Schema(
       max: 9999999999,
       unique: true,
     },
-    checkout: [{ type: mongoose.Schema.Types.ObjectId, ref: checkout }],
+    checkout: [{ type: mongoose.Schema.Types.ObjectId, ref: "checkout" }],
     order: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: order,
+        ref: "order",
       },
     ],
   },
