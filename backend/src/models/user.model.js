@@ -19,7 +19,14 @@ const userSchema = new mongoose.Schema(
       },
     ],
     checkout: [{ type: mongoose.Schema.Types.ObjectId, ref: checkout }],
+    order: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: order,
+      },
+    ],
   },
+
   {
     versionKey: false,
     timestamps: true,
