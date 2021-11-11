@@ -4,7 +4,8 @@
   "description": "this is backend for make my trip",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src"
   },
   "author": "arpit sachan",
   "license": "ISC",
