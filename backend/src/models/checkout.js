@@ -16,3 +16,6 @@ const checkoutSchema = new mongoose.Schema({
     
 });
 
+const Checkout = mongoose.model("checkouts", checkoutSchema)
+
+module.exports = Checkout;
