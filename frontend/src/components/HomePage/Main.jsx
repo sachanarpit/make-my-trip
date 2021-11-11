@@ -9,6 +9,7 @@ import { Bigslide, TripMoney } from "./Slidecss";
 import { Bottom } from "./Bottom";
 import { Header } from "./Header";
 import {Link} from 'react-router-dom'
+import {SmallBottom} from './SmallBottom'
 import {useState} from 'react'
 export const Main = ({handleButton}) => {
   const [data,setData] = useState({
@@ -83,6 +84,7 @@ const addLocal = ()=>{
           <div className="button"><button onClick={addLocal}><Link to="/search">SEARCH</Link></button></div>
       </Navbar>
       <div style={{ background: "#ebe7e7", paddingTop: "50px" }}>
+        <SmallBottom/>
         <div style={{ width: "90%", margin: "auto" }}>
           <MultipleSlidesExample />
         </div>
