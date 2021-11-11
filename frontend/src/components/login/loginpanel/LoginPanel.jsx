@@ -3,29 +3,34 @@ import React from "react";
 import { useState} from "react";
 import { LoginForm } from "./LoginForm";
 import { ConfirmOtp } from "./ConfirmOtp";
+import Auth from "../../../auth";
+export const LoginPanel = ({ handleClick, handleUser }) => {
 
-export const LoginPanel = ({ handleClick,handleStatus, handleUser }) => {
   const [otpSend, setOtpSend] = useState(false);
 
-  const [verified, setVerified] = useState(false);
-  
+  const [state,setState] = useState({
+    phone:"",
+    hash:"",
+    otp:""
+  });
 
-  const handleOtpSend = (user) => {
+  const {phone,hash,otp} = state;
+  const value = {phone,hash,otp}
 
-    //console.log(user)
-
+  const handleOtpSend = () => {
     setOtpSend(true);
   };
 
+// handling with user login inputs
+    const handleChange = (input)=>(e)=>{
 
-  const handleVer = () => {
-    console.log("verified")
-
-    setVerified(true);
-    
-    handleStatus();
-      
-  };
+      setState({...state,[input]:e.target.value});
+    }
+  
+    //handling has status
+    const hashHandleChange = (hash)=>{
+      setState({...state, hash:hash});
+    }
 
   return (
     <div className="loginMain">
@@ -33,10 +38,19 @@ export const LoginPanel = ({ handleClick,handleStatus, handleUser }) => {
         <div className="close">
           <span onClick={handleClick}>X</span>
         </div>
-        { verified ? alert("success"):otpSend ? (
-          <ConfirmOtp handleVer={handleVer} />
+        { (Auth.isAuthenticated()) ? handleUser(value.phone):otpSend ? (
+          <ConfirmOtp
+                handleChange={handleChange}           // handling with user login inputs          
+                value = {value}
+          />
         ) :(
-          <LoginForm handleOtpStatus={handleOtpSend} />
+          <LoginForm 
+          handleOtpStatus={handleOtpSend} 
+          handleChange={handleChange}           // handling with user login inputs
+          hashHandleChange={hashHandleChange}   //handling has status
+          value = {value}
+          
+          />
         )}
       </div>
     </div>

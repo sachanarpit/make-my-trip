@@ -1,16 +1,30 @@
 import React from "react";
-import { useState } from "react";
+//import { useState } from "react";
 import "./confirmOtp.css";
-export const ConfirmOtp = ({handleVer}) => {
+import axios from "axios";
+export const ConfirmOtp = (props) => {
 
-  const [otp, setOtp] = useState(""); // 
+  const { handleChange,value } = props;
+  axios.defaults.withCredentials = true;
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
-    
-    if(otp.length==6) handleVer();
-    
-    else{alert("Incorrect OTP")}
+
+    axios.post("http://localhost:4000/verifyOTP",{
+      phone:`+91${value.phone}`,
+      hash:`${value.hash}`,
+      otp:`${value.otp}`
+
+    }).then((res)=>{
+      alert("Login Success")
+      window.location.reload()
+      
+      //console.log(res.data)
+    }).catch((err)=>{
+      alert(err.response.data.msg)
+     // console.error(err.response.data.msg)
+    })
   };
 
   return (
@@ -24,15 +38,15 @@ export const ConfirmOtp = ({handleVer}) => {
       <div className="inp">
         <input
           type="number"
-          value={otp}
-          onChange={(e) => setOtp(e.target.value)}
+          value={value.otp}
+          onChange={handleChange('otp')}
           placeholder="OTP"
           required
         />
       </div>
-      <button className="cbtn" type="submit" >
-        Verify & create Account
-      </button>
+      <input className="cbtn" type="submit" 
+        value="Verify & create Account"
+      />
       </form>
     </div>
   );

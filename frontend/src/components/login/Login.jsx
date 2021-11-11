@@ -1,36 +1,39 @@
 import "./login.css";
 import { useState } from "react";
 import { LoginPanel } from "./loginpanel/LoginPanel";
-export const Login = () => {
-  const [status, setStatus] = useState(false);
+import Auth from "../../auth";
+import axios from "axios";
+export const Login = ({ handleClick}) => {
+  
   const [user, setUser] = useState({ name: "Rahul Kumar" });
-  const [newUser, setNewUser] = useState(null);
 
-  const handleClick = () => {
-    const popup = document.getElementById("popup");
-    popup.classList.toggle("active");
-  };
+  const logOut = ()=>{
 
-  const handleStatus = () =>{
-    handleClick();
-    setStatus(true)
+    axios.get("http://localhost:4000/logout").then((res)=>{
+      console.log(res.data)
+      window.location.reload();
+    }).catch((err)=>{
+      console.error(err.response)
+    })
   }
 
-  const handleUser = (newuser)=>{
-    console.log(newuser)
-setNewUser(newuser);
+ 
 
-console.log("22",newUser)
+  //setting user details
+  const handleUser = (mob)=>{
+    console.log(mob);
+    //set the login user here...
   }
 
-
+ 
   return (
     <>
-      <div className="loginTrigger" onClick={(status)?null: handleClick}>
-        <span className="login-logo">{status ? user.name[0] : "My"}</span>
-        {status ? (
+      <div className="loginTrigger" onClick={(Auth.isAuthenticated())?null: handleClick}>
+        <span className="login-logo">{(!Auth.isAuthenticated()) ? user.name[0] : "My"}</span>
+        {(Auth.isAuthenticated()) ? (        
           <div className="userLogged">
             <span>Hi {user.name}</span>
+            <button onClick={logOut}>Logout</button>
           </div>
         ) : (
           <div className="account">
@@ -40,7 +43,11 @@ console.log("22",newUser)
         )}
       </div>
       <div id="popup">
-        <LoginPanel handleClick={handleClick} handleStatus ={handleStatus} handleUser={handleUser}/>
+        <LoginPanel
+          handleClick={handleClick}             // for popup 
+        //  handleStatus ={handleStatus}          // see is user login or not
+          handleUser={handleUser}               //setting user details
+          />             
       </div>
     </>
   );
