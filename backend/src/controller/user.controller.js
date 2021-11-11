@@ -9,4 +9,9 @@ rauter.post("", async (req, res) => {
   return res.status(201).send(user);
 });
 
+rauter.get("", async (req, res) => {
+  const user = await User.find().lean().exec();
+  return res.status(200).send({ user });
+});
+
 module.exports = rauter;

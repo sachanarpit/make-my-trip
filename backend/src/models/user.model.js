@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    id: { type: Number },
     name: { type: String },
     email: { type: String, required: true },
     password: { type: String, required: true },
@@ -12,11 +11,11 @@ const userSchema = new mongoose.Schema(
       max: 9999999999,
       unique: true,
     },
-    checkout: [{ type: mongoose.Schema.Types.ObjectId, ref: "checkout" }],
+    checkout: [{ type: mongoose.Schema.Types.ObjectId, ref: "checkouts" }],
     order: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "order",
+        ref: "orders",
       },
     ],
   },
