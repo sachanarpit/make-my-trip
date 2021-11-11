@@ -16,7 +16,7 @@ export const LoginForm = (props) => {
 
       }).then((res)=>{
         console.log(res.data.otp)
-        console.log(res);
+        //console.log(res);
         const hash = res.data.hash;
         hashHandleChange(hash);
       })
@@ -24,7 +24,10 @@ export const LoginForm = (props) => {
       handleOtpStatus();
     }
     
-    else(alert("Invalid mobile number"))
+    else{
+      alert("Invalid mobile number")
+      
+    }
    
   };
 

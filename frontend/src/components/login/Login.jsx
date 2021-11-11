@@ -29,11 +29,11 @@ export const Login = ({ handleClick}) => {
   return (
     <>
       <div className="loginTrigger" onClick={(Auth.isAuthenticated())?null: handleClick}>
-        <span className="login-logo">{(!Auth.isAuthenticated()) ? user.name[0] : "My"}</span>
+        <span className="login-logo">{(Auth.isAuthenticated()) ? user.name[0] : "My"}</span>
         {(Auth.isAuthenticated()) ? (        
           <div className="userLogged">
             <span>Hi {user.name}</span>
-            <button onClick={logOut}>Logout</button>
+            <button onClick={logOut} className="logout-btn">Logout</button>
           </div>
         ) : (
           <div className="account">
