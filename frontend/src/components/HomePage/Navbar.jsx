@@ -59,5 +59,10 @@ button{
         #3339e9 100%);
 }
 }
+a{
+  color: white;
+  text-decoration: none;
+}
+
 
 `

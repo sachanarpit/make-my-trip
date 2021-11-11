@@ -21,6 +21,9 @@ const handleData = (e)=>{
   [name] : value
   })
 }
+const addLocal = ()=>{
+  localStorage.setItem('myKey', JSON.stringify(data));
+}
   return (
     <div>
       <Header></Header>
@@ -77,7 +80,7 @@ const handleData = (e)=>{
           </div>
           <Fromto handleChange={handleData} />
         </Bookingcss>
-          <div className="button"><Link to='/search'><button>SEARCH</button></Link></div>
+          <div className="button"><button onClick={addLocal}><Link to="/search">SEARCH</Link></button></div>
       </Navbar>
       <div style={{ background: "#ebe7e7", paddingTop: "50px" }}>
         <div style={{ width: "90%", margin: "auto" }}>

@@ -1,24 +1,50 @@
 import { Header } from "./Header";
 import { SearchBox } from "./SearchBox";
 import { Bottom } from "./Bottom";
-import { useState } from "react";
-import axios from "axios";
+import { useState ,useEffect } from "react";
+// import axios from "axios";
 export const Search = () => {
   const [dataa, setData] = useState([]);
   const handleSelect = async (select) => {
-    let { data } = await axios.get(
-      "http://api.aviationstack.com/v1/flights?limit=100",
-      {
-        params: {
-          dep_iata: select.from,
-          arr_iata: select.to,
-          access_key: "c6b8626fdfe694d58f25cc5053276ee1",
-        },
-      }
-    );
-    data = data.data;
-    setData(data);
+    let promise = async () => {
+      const data = await fetch(
+        `http://api.aviationstack.com/v1/flights?limit=100&dep_iata=${select.from}&arr_iata=${select.to}&access_key=a6c1cdd70d8fe2e2fdf5ed89d652b632`
+      );
+      const ans = await data.json();
+     setData(ans.data)
+    };
+    promise();
   };
+  // const handleLocal = async ()=>{
+  //   let x = localStorage.getItem('myKey')
+  //   let y = JSON.parse(x)
+  //   let { data } = await axios.get(
+  //     "http://api.aviationstack.com/v1/flights?limit=100",
+  //     {
+  //       params: {
+  //         dep_iata: y.from,
+  //         arr_iata: y.to,
+  //         access_key: "a6c1cdd70d8fe2e2fdf5ed89d652b632",
+  //       },
+  //     }
+  //   );
+  //   data = data.data;
+  //   setData(data);
+  // }
+
+  useEffect(() => {
+    let x = localStorage.getItem('myKey')
+    let y = JSON.parse(x)
+    let promise = async () => {
+      const data = await fetch(
+        `http://api.aviationstack.com/v1/flights?limit=100&dep_iata=${y.from}&arr_iata=${y.to}&access_key=a6c1cdd70d8fe2e2fdf5ed89d652b632`
+      );
+      const ans = await data.json();
+     setData(ans.data)
+    };
+    promise();
+  }, []);
+
 
   const bookData = (e) => {
     console.log(e);
