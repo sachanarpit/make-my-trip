@@ -16,11 +16,16 @@ const jwt = require("jsonwebtoken");
 
 const JWT_AUTH_TOKEN = process.env.JWT_AUTH_TOKEN;
 const JWT_REFRESH_TOKEN = process.env.JWT_REFRESH_TOKEN;
+const cors = require('cors');
+
 let refreshTokens = [];
 
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({origin:'http://localhost:3000',credentials:true}))
+
+/******************* Send OTP */
 
 app.post('/sendOTP',(req,res)=>{
     const phone = req.body.phone;
@@ -31,14 +36,16 @@ app.post('/sendOTP',(req,res)=>{
     const hash = crypto.createHmac('sha256',smsKey).update(data).digest("hex");
     const fullhash = `${hash}.${expires}`;
 
-    // client.messages.create({
-    //     body:`Your One Time Login Password for CFM is ${otp}`,
-    //     from:+18048893104,
-    //     to:phone
-    // }).then((messages)=>console.log(messages)).catch((err)=>console.error(err))
+    client.messages.create({
+        body:`Your One Time Login Password for CFM is ${otp}`,
+        from:+18048893104,
+        to:phone
+    }).then((messages)=>console.log(messages)).catch((err)=>console.error(err))
 
     res.status(200).send({phone,hash:fullhash,otp})
 })
+
+/************************* Verify router ******************/
 
 app.post("/verifyOTP", (req,res)=>{
     const phone = req.body.phone;
@@ -88,6 +95,8 @@ app.post("/verifyOTP", (req,res)=>{
     }
 })
 
+/************************ Authenticate User ****************/
+
 async function authenticateUser(req,res,next){
     const accessToken = req.cookies.accessToken;
 
@@ -104,6 +113,7 @@ async function authenticateUser(req,res,next){
         }
     })
 }
+/********************* Refresh  ****************/
 
 app.post("/refresh",(req,res)=>{
     const refreshToken = req.cookies.refreshToken;
@@ -133,7 +143,7 @@ app.post("/refresh",(req,res)=>{
     })
     
 })
-
+/*************************** logout  ****************/
 app.get("/logout", (req,res)=>{
     res.clearCookie('refreshToken')
     .clearCookie('.accessToken')
