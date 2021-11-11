@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { nanoid } from "nanoid";
-import { useState } from "react";
+// import { useState } from "react";
 const Style = styled.div`
   display: grid;
   grid-template-columns: 30% 70%;
@@ -151,11 +151,11 @@ const Style = styled.div`
   }
 `;
 export const Bottom = ({ data, bookData }) => {
-  const [slide,setSlide] = useState('')
-  const handleSlider = (e)=>{
-   setSlide(e.target.value)
-   console.log(slide);
-  }
+  // const [slide,setSlide] = useState('')
+  // const handleSlider = (e)=>{
+  //  setSlide(e.target.value)
+  //  console.log(slide);
+  // }
   return (
     <Style>
       <div className="filters">
@@ -183,7 +183,7 @@ export const Bottom = ({ data, bookData }) => {
         <h4>One way price</h4>
         </div>
         <div className="forfilter">
-        <input type="range" min="1000" max="10000" value={handleSlider} class="slider" id="myRange"/>
+        {/* <input type="range" min="1000" max="10000" value={handleSlider} className="slider" id="myRange"/> */}
         </div>
       </div>
       <div className="allData">

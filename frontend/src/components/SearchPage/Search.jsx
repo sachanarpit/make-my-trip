@@ -2,7 +2,6 @@ import { Header } from "./Header";
 import { SearchBox } from "./SearchBox";
 import { Bottom } from "./Bottom";
 import { useState } from "react";
-// import { nanoid } from 'nanoid'
 import axios from "axios";
 export const Search = () => {
   const [dataa, setData] = useState([]);
@@ -18,13 +17,9 @@ export const Search = () => {
       }
     );
     data = data.data;
-    console.log(select);
     setData(data);
   };
 
-  // useEffect(() => {
-  //   handleData();
-  // }, []);
   const bookData = (e) => {
     console.log(e);
   };

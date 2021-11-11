@@ -10,7 +10,7 @@ import { Bottom } from "./Bottom";
 import { Header } from "./Header";
 import {Link} from 'react-router-dom'
 import {useState} from 'react'
-export const Main = () => {
+export const Main = ({handleButton}) => {
   const [data,setData] = useState({
     from: '',
     to: ""
@@ -20,9 +20,6 @@ const handleData = (e)=>{
   setData({...data,
   [name] : value
   })
-}
-const handleButton = ()=>{
-  console.log(data);
 }
   return (
     <div>
@@ -80,7 +77,7 @@ const handleButton = ()=>{
           </div>
           <Fromto handleChange={handleData} />
         </Bookingcss>
-          <div className="button"><button onClick={handleButton}>SEARCH</button></div>
+          <div className="button"><Link to='/search'><button>SEARCH</button></Link></div>
       </Navbar>
       <div style={{ background: "#ebe7e7", paddingTop: "50px" }}>
         <div style={{ width: "90%", margin: "auto" }}>

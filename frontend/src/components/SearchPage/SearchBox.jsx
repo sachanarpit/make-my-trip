@@ -121,7 +121,6 @@ export const SearchBox = ({handle}) => {
         "https://raw.githubusercontent.com/ashhadulislam/JSON-Airports-India/master/airports.json"
       );
       const ans = await data.json();
-      console.log(ans);
       setText(ans.airports);
     };
     promise();
