@@ -1,6 +1,6 @@
 const express = require("express");
 
-const rauter = express.Rauter();
+const rauter = express.Router();
 
 const Checkout = require("../models/checkout.model");
 

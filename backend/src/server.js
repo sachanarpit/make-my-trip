@@ -8,7 +8,11 @@ const port = process.env.port;
 
 const userController = require("./controller/user.controller");
 
+const checkoutController = require("./controller/checkout.controller");
+
 app.use("/users", userController);
+
+app.use("/checkout", checkoutController);
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
