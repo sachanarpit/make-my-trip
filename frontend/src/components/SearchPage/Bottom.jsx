@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { nanoid } from "nanoid";
-// import { useState } from "react";
+import {useState} from 'react'
 const Style = styled.div`
   display: grid;
   grid-template-columns: 30% 70%;
@@ -8,20 +8,11 @@ const Style = styled.div`
   background-color: #e4e4e4;
   .filters {
     background-color: white;
-    height: 500px;
     margin-left: 100px;
+    height: 700px;
     box-shadow: 0px 0px 4px #c9c8c8;
     position: relative;
-
     top: -140px;
-    .forfilter {
-      display: flex;
-      width: 80%;
-      margin: auto;
-      flex-direction: row;
-      gap: 10px;
-      align-items: center;
-    }
   }
   .allData {
     margin-right: 100px;
@@ -149,51 +140,124 @@ const Style = styled.div`
       }
     }
   }
+  .firstFilter {
+    padding: 12px 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h3 {
+      color: #000000;
+      font-size: 17px;
+      line-height: 0px;
+      text-align: left;
+    }
+    .div {
+      padding: 0;
+      align-items: center;
+      color: #000000;
+      display: flex;
+      font-size: 14px;
+      p {
+        color: #000000;
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+        line-height: 21px;
+        font-weight: 500;
+        margin-left: 10px;
+        align-items: center;
+      }
+    }
+  }
 `;
 export const Bottom = ({ data, bookData }) => {
-  // const [slide,setSlide] = useState('')
-  // const handleSlider = (e)=>{
-  //  setSlide(e.target.value)
-  //  console.log(slide);
-  // }
+  const [value,setValue] = useState('')
+  const handleSlider = (e)=>{
+     setValue(e.target.value)
+  }
+  let x = localStorage.getItem("myKey");
+  let y = JSON.parse(x);
   return (
     <Style>
       <div className="filters">
-        <div className="forfilter">
-          <input type="checkbox" />
-          <p>Non stop</p>
+      <div className="firstFilter">
+          <h3>Sort by price</h3>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Low to High</p>
+          </div>
+          <div className="div">
+            <input type="checkbox" />
+            <p>High to Low</p>
+          </div>
         </div>
-        <div className="forfilter">
-          <input type="checkbox" />
-          <p>Non stop</p>
+        <div className="firstFilter">
+          <h3>Popular Filters</h3>
+          <div className="div">
+            <input type="checkbox" />
+            <p>stop</p>
+          </div>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Late Departures</p>
+          </div>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Refundable Fares</p>
+          </div>
         </div>
-        <div className="forfilter">
-          <input type="checkbox" />
-          <p>Non stop</p>
+        <div className="firstFilter">
+          <h3>Alliances & Airlines</h3>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Air India</p>
+          </div>
+          <div className="div">
+            <input type="checkbox" />
+            <p>British Airways</p>
+          </div>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Lufthansa</p>
+          </div>
         </div>
-        <div className="forfilter">
-          <input type="checkbox" />
-          <p>Non stop</p>
+        <div className="firstFilter">
+          <h3>Layover Airports</h3>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Frankfurt</p>
+          </div>
         </div>
-        <div className="forfilter">
-          <input type="checkbox" />
-          <p>Non stop</p>
-        </div>
-        <div className="forfilter">
-        <h4>One way price</h4>
-        </div>
-        <div className="forfilter">
-        {/* <input type="range" min="1000" max="10000" value={handleSlider} className="slider" id="myRange"/> */}
+        <div className="firstFilter">
+          <h3>Select Range ₹{value}</h3>
+         <input type="range" min="1000" max="10000" onChange={handleSlider} />
         </div>
       </div>
       <div className="allData">
-        <h1>Flight from HongKong to Bengluru</h1>
+        <h1>
+          Flight from {y.from} to {y.to}
+        </h1>
         {data.map((e) => (
           <div key={nanoid(6)} className="maping">
             <div className="div1">
               <div className="one">
                 <img
-                  src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SQ.png?v=7"
+                  src={
+                    e.airline.name === "IndiGo"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=7"
+                      : e.airline.name === "Air India"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=7"
+                      : e.airline.name === "AirAsia"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/I5.png?v=7"
+                      : e.airline.name === "Vistara"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/UK.png?v=7"
+                      : e.airline.name === "SpiceJet"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SG.png?v=7"
+                      : e.airline.name === "GoAir"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/G8.png?v=7"
+                      : "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/G8.png?v=7"
+                  }
                   alt=""
                 />
                 <p>{e.airline.name}</p>
@@ -224,8 +288,8 @@ export const Bottom = ({ data, bookData }) => {
                           .split("T")[1]
                           .split("+")[0]
                           .split(":")[1]
-                      )+ " minutes"
-                      )}
+                      ) +
+                      " minutes")}
                 </p>
                 <div></div>
                 <span>Safe Journey</span>
