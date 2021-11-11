@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { nanoid } from "nanoid";
-import {useState} from 'react'
+import { useState } from "react";
+import { Link } from "react-router-dom";
 const Style = styled.div`
   display: grid;
   grid-template-columns: 30% 70%;
@@ -48,6 +49,10 @@ const Style = styled.div`
             font-size: 14px;
             font-weight: 700;
           }
+        }
+        a{
+          text-decoration: none;
+          color: white;
         }
         .two {
           display: flex;
@@ -172,16 +177,16 @@ const Style = styled.div`
   }
 `;
 export const Bottom = ({ data, bookData }) => {
-  const [value,setValue] = useState('')
-  const handleSlider = (e)=>{
-     setValue(e.target.value)
-  }
+  const [value, setValue] = useState("");
+  const handleSlider = (e) => {
+    setValue(e.target.value);
+  };
   let x = localStorage.getItem("myKey");
   let y = JSON.parse(x);
   return (
     <Style>
       <div className="filters">
-      <div className="firstFilter">
+        <div className="firstFilter">
           <h3>Sort by price</h3>
           <div className="div">
             <input type="checkbox" />
@@ -231,7 +236,7 @@ export const Bottom = ({ data, bookData }) => {
         </div>
         <div className="firstFilter">
           <h3>Select Range ₹{value}</h3>
-         <input type="range" min="1000" max="10000" onChange={handleSlider} />
+          <input type="range" min="1000" max="10000" onChange={handleSlider} />
         </div>
       </div>
       <div className="allData">
@@ -308,7 +313,7 @@ export const Bottom = ({ data, bookData }) => {
                   bookData(e);
                 }}
               >
-                BOOK NOW
+                <Link to="/checkout">BOOK NOW</Link>
               </button>
             </div>
             <div className="div2">

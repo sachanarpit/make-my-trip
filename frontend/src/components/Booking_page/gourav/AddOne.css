@@ -1,0 +1,90 @@
+#hover_div {
+  border: 1px solid #1f77f7;
+  width: 60px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 15px;
+  color: #1f77f7;
+  margin-left: 20px;
+  color: #1f77f7;
+}
+
+#hover_div:hover {
+  cursor: pointer;
+  background-color: #1f77f7;
+  color: white;
+}
+input {
+  border-radius: 5px;
+  border: 1px solid black;
+}
+input:focus {
+  border: none;
+  /* outline: none; */
+  outline: 2px solid #1f77f7;
+}
+.name_inp {
+  padding: 7px;
+  width: 220px;
+}
+.genderinp {
+  cursor: pointer;
+  width: 80px;
+  padding: 7px;
+}
+
+.ML {
+  margin-left: 30px;
+}
+
+.checkbox {
+  width: 15px;
+  height: 15px;
+}
+
+.genderinp:focus {
+  outline: 1px solid black;
+  border-bottom: 3px solid #1b71f6;
+  font-weight: bold;
+  color: gray;
+}
+.outer_div {
+  background: #ffffff;
+  width: 800px;
+  border-radius: 10px;
+  margin-left: 50px;
+  padding: 15px;
+}
+.wheelchair_div {
+  padding: 10px;
+  width: 220px;
+  margin-top: 8px;
+}
+
+.line {
+  margin-top: 30px;
+  border: 1px solid #f2f2f2;
+}
+.continue_btn {
+  padding: 10px;
+  width: 200px;
+  background: #1f77f7;
+  color: #fff;
+  border-radius: 30px;
+  border: none;
+  font-weight: bold;
+  margin-top: 30px;
+  cursor: pointer;
+}
+.inner_shadow_box {
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.rs99 {
+  margin-left: 40px;
+  margin-top: 10px;
+  font-size: 20px;
+}

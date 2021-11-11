@@ -8,7 +8,7 @@ export const Getdatacss = styled.div`
     background-image: linear-gradient(0deg,#15457b,#051423);
     width: 100%;
     position: absolute;
-    top: 0;
+    top: 70px;
     left: 0;
     height: 250px;
 }

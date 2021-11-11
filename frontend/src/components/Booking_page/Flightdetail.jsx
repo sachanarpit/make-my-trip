@@ -2,8 +2,8 @@
 import {Flightdetailcss} from './Flightdetailcss.jsx';
 
 const Flightdetail = () => {
-
-
+   let data = localStorage.getItem('buy')
+   let res = JSON.parse(data)
     return (
        <Flightdetailcss>
             <div className="flightdetail">
@@ -26,9 +26,23 @@ const Flightdetail = () => {
                 <div className="flightdetail_wrap">
                     <div className="flightdetail_internal">
                         <div className="icon_div">
-                           <img src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=7"/>
-                           <p>IndiGo</p>
-                           <p>6E-432</p>
+                           <img alt=""  src={
+                    res.airline.name === "IndiGo"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=7"
+                      : res.airline.name === "Air India"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=7"
+                      : res.airline.name === "AirAsia"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/I5.png?v=7"
+                      : res.airline.name === "Vistara"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/UK.png?v=7"
+                      : res.airline.name === "SpiceJet"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SG.png?v=7"
+                      : res.airline.name === "GoAir"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/G8.png?v=7"
+                      : "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/G8.png?v=7"
+                  }/>
+                           <p>{res.airline.name}</p>
+                           <p>{res.flight.iata}</p>
                         </div>
                         <div className="icon_div">
                             <p>Economy</p>
@@ -38,17 +52,38 @@ const Flightdetail = () => {
                     <div id="flight_timer" className="flight_time">
                         <div>
                            <div className="flight_time">
-                                <h4>10:45</h4>
+                                <h4>{res.departure.scheduled.split("T")[1].split("+")[0]}</h4>
                                 <p></p>
-                                <h4>Patna</h4>
-                                <p>. Lok Nayak Jayaprakash Airport</p>
+                                <h4>{res.departure.iata}</h4>
+                                <p>{res.departure.airport}</p>
                            </div>
-                           <div><p>2h 10m</p></div>
+                           <div><p> {+res.arrival.scheduled
+                    .split("T")[1]
+                    .split("+")[0]
+                    .split(":")[0] -
+                    Number(
+                      res.departure.scheduled
+                        .split("T")[1]
+                        .split("+")[0]
+                        .split(":")[0]
+                    ) +
+                    " hours " +
+                    (+res.arrival.scheduled
+                      .split("T")[1]
+                      .split("+")[0]
+                      .split(":")[1] -
+                      Number(
+                        res.departure.scheduled
+                          .split("T")[1]
+                          .split("+")[0]
+                          .split(":")[1]
+                      ) +
+                      " minutes")}</p></div>
                            <div  className="flight_time">
-                                <h4>12:55</h4>
+                                <h4>{res.arrival.scheduled.split("T")[1].split("+")[0]}</h4>
                                 <p></p>
-                                <h4>Hyderabad </h4>
-                                <p> . Rajiv Gandhi International Airport</p>
+                                <h4>{res.arrival.iata} </h4>
+                                <p>{res.arrival.airport}</p>
                            </div>
                         </div>
                         <div  className="flight_time"> 

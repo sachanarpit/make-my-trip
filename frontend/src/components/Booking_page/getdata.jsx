@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+// import axios from "axios";
+// import { useState, useEffect } from "react";
 import { Bookingheader } from "./Bookingheader";
 import { Canceldetail } from "./Canceldetail";
 import { Flightdetail } from "./Flightdetail";
@@ -7,12 +7,13 @@ import { Flightdetailfooter } from "./Flightdetailfooter";
 import { Getdatacss } from "./Getdatacss";
 import { Luggagebar } from "./Luggagebar";
 import { Paybar } from "./Paybar";
-
+import {Header} from '../SearchPage/Header'
 
 const Mytrip = () => {
 
    
-    return (
+    return (<>
+         <Header/>
         <Getdatacss>
             <div className="main_div">
                 <Bookingheader/>
@@ -29,6 +30,6 @@ const Mytrip = () => {
                 </div> 
             </div>
         </Getdatacss>
-    )
+   </> )
 }
 export {Mytrip}

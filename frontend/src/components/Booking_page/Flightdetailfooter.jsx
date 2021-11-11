@@ -10,7 +10,7 @@ const Flightdetailfooter = () => {
                <h3>Important Information</h3>
                <div>
                    <div className="inline">
-                       <img src= "https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/imp-info.png"/>
+                       <img alt=""  src= "https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/imp-info.png"/>
                        <h5>Mandatory check-list for passengers</h5>
                    </div>
                    <ul>
@@ -27,7 +27,7 @@ const Flightdetailfooter = () => {
                </div>
                <div>
                    <div className="inline">
-                       <img src= "https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/imp-info.png"/>
+                       <img alt=""  src= "https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/imp-info.png"/>
                        <h5>State Guidelines</h5>
                    </div>
                    <ul>
@@ -36,7 +36,7 @@ const Flightdetailfooter = () => {
                </div>
                <div>
                     <div className="inline">
-                       <img src= "https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/imp-info.png"/>
+                       <img alt=""  src= "https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/imp-info.png"/>
                        <h5>Baggage information</h5>
                    </div>
                    <ul>
@@ -45,7 +45,7 @@ const Flightdetailfooter = () => {
                </div>
                <div>
                     <div className="inline">
-                       <img src= "https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/imp-info.png"/>
+                       <img alt=""  src= "https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/imp-info.png"/>
                        <h5>A Note on Guidelines</h5>
                    </div>
                    <ul>

@@ -33,7 +33,7 @@ const Paybar = () => {
                <div className="promocode">
                     <div className="promo_icon">
                         <h3>PROMO CODES</h3>
-                        <img src="https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/promo-code.png" />
+                        <img alt=""  src="https://imgak.mmtcdn.com/flights/assets/media/dt/rta_assets/promo-code.png" />
                     </div>
                     <input className="code_input" type="text" placeholder="Enter Promo Code Here"></input>
                     <div className="promo_option">
