@@ -6,10 +6,12 @@ const port = process.env.port;
 app.use(express.json());
 
 let userController = require("./controllers/user.controller");
+let checkoutController = require("./controllers/checkout.controller");
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
 app.use("/users", userController);
+app.use("/checkout", checkoutController);
 
 const start = async () => {
   await connect();
