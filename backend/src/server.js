@@ -3,8 +3,12 @@ const connect = require("./config/db");
 
 require("dotenv").config();
 const app = express();
+app.use(express.json());
 const port = process.env.port;
-console.log("port:", port);
+
+const userController = require("./controller/user.controller");
+
+app.use("/users", userController);
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
