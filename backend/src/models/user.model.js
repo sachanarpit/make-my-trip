@@ -12,12 +12,6 @@ const userSchema = new mongoose.Schema(
       max: 9999999999,
       unique: true,
     },
-    cart: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: cart,
-      },
-    ],
     checkout: [{ type: mongoose.Schema.Types.ObjectId, ref: checkout }],
     order: [
       {
