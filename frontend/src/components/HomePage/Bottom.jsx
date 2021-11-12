@@ -1,4 +1,6 @@
 import {Bottomcss} from './Bottomcss'
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
 export const Bottom = ()=>{
     return <Bottomcss>
 <div className="div1">
@@ -83,9 +85,15 @@ export const Bottom = ()=>{
  </div>
 </div>
 <div className="div4">
-<div>
-    <p className="twitter"></p>
-    <p></p>
+<div className="fb">
+    <div className="onee">
+        <div><FacebookIcon/></div>
+        <div><TwitterIcon/></div>
+    </div>
+    <div className="copy">
+        <p>© 2021 MAKEMYTRIP PVT. LTD.</p>
+        <p>Country India USA UAE</p>
+    </div>
 </div>
 </div>
     </Bottomcss>

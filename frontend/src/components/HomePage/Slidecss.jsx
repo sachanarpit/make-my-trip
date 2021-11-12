@@ -168,7 +168,7 @@ export const TripMoney = styled.div`
       background-image: url("https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/landingSprite@13x.webp");
       background-position: -174px -86px;
       background-size: 200px 600px;
-      width: 38px;
+      width: 42px;
       height: 10px;
       color: #008cff;
       display: inline-block;
