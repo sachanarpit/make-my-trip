@@ -8,24 +8,22 @@ import { MultipleSlidesExample, BigSlidesExample } from "./Slidebar";
 import { Bigslide, TripMoney } from "./Slidecss";
 import { Bottom } from "./Bottom";
 import { Header } from "./Header";
-import {Link} from 'react-router-dom'
-import {SmallBottom} from './SmallBottom'
-import {useState} from 'react'
-import {FareTypes} from './FareTypes'
-export const Main = ({handleButton}) => {
-  const [data,setData] = useState({
-    from: '',
-    to: ""
-  })
-const handleData = (e)=>{
-  const {name,value} = e.target;
-  setData({...data,
-  [name] : value
-  })
-}
-const addLocal = ()=>{
-  localStorage.setItem('myKey', JSON.stringify(data));
-}
+import { Link } from "react-router-dom";
+import { SmallBottom } from "./SmallBottom";
+import { useState } from "react";
+import { FareTypes } from "./FareTypes";
+export const Main = () => {
+  const [data, setData] = useState({
+    from: "",
+    to: "",
+  });
+  const handleData = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
+  const addLocal = () => {
+    localStorage.setItem("myKey", JSON.stringify(data));
+  };
   return (
     <div>
       <Header></Header>
@@ -36,11 +34,15 @@ const addLocal = ()=>{
             src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/DiwaliLantern.webp"
             alt=""
           />
-          <img
-            className="mmtlogo"
-            src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png"
-            alt=""
-          />
+          <Link to="/">
+            <img
+              className="mmtlogo"
+              src={
+                "https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png"
+              }
+              alt="Logo"
+            />
+          </Link>
           <div className="login">
             <p>Login or Create Account</p>
           </div>
@@ -81,12 +83,16 @@ const addLocal = ()=>{
             <div>INTERNATIONAL FLIGHTS | DOMESTIC FLIGHTS</div>
           </div>
           <Fromto handleChange={handleData} />
-          <FareTypes/>
+          <FareTypes />
         </Bookingcss>
-          <div className="button"><button onClick={addLocal}><Link to="/search">SEARCH</Link></button></div>
+        <div className="button">
+          <button onClick={addLocal}>
+            <Link to="/search">SEARCH</Link>
+          </button>
+        </div>
       </Navbar>
       <div style={{ background: "#ebe7e7", paddingTop: "50px" }}>
-        <SmallBottom/>
+        <SmallBottom />
         <div style={{ width: "90%", margin: "auto" }}>
           <MultipleSlidesExample />
         </div>
