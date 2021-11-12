@@ -8,7 +8,7 @@ const checkoutSchema = new mongoose.Schema({
   date: { type: String },
   user: {
     type: String,
-    ref: "users",
+    required: true,
   },
 });
 
