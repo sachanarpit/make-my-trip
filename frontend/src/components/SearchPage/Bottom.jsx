@@ -304,7 +304,7 @@ export const Bottom = ({ data, bookData }) => {
                 <p>{e.arrival.iata}</p>
               </div>
               <h4>
-                {+e.departure.delay === 0
+                {+e.departure.delay === 0 || null
                   ? "₹5050"
                   : "₹" + e.departure.delay * 200}
               </h4>

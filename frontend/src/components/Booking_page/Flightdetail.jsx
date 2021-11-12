@@ -9,10 +9,31 @@ const Flightdetail = () => {
             <div className="flightdetail">
                 <div className="flightdetailheader">
                     <div>
-                        <h2> Patna → Hyderabad </h2>
+                        <h2> {res.departure.iata} → {res.arrival.iata} </h2>
                         <p>
                             <span className="date">Friday, Dec 10</span>
-                            <span>Non Stop · 2h 10m</span>
+                            <span>Non Stop · {+res.arrival.scheduled
+                    .split("T")[1]
+                    .split("+")[0]
+                    .split(":")[0] -
+                    Number(
+                      res.departure.scheduled
+                        .split("T")[1]
+                        .split("+")[0]
+                        .split(":")[0]
+                    ) +
+                    " hours " +
+                    (+res.arrival.scheduled
+                      .split("T")[1]
+                      .split("+")[0]
+                      .split(":")[1] -
+                      Number(
+                        res.departure.scheduled
+                          .split("T")[1]
+                          .split("+")[0]
+                          .split(":")[1]
+                      ) +
+                      " minutes")}</span>
                         </p>
                     </div>
                     <div></div>

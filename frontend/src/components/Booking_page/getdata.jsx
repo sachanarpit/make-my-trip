@@ -1,5 +1,3 @@
-// import axios from "axios";
-// import { useState, useEffect } from "react";
 import { Bookingheader } from "./Bookingheader";
 import { Canceldetail } from "./Canceldetail";
 import { Flightdetail } from "./Flightdetail";
@@ -8,11 +6,11 @@ import { Getdatacss } from "./Getdatacss";
 import { Luggagebar } from "./Luggagebar";
 import { Paybar } from "./Paybar";
 import {Header} from '../SearchPage/Header'
-
+import {App} from './gourav/App'
 const Mytrip = () => {
 
    
-    return (<>
+    return (<div>
          <Header/>
         <Getdatacss>
             <div className="main_div">
@@ -23,6 +21,7 @@ const Mytrip = () => {
                         <Luggagebar/>
                         <Canceldetail/>
                         <Flightdetailfooter/>
+                        <App/>
                     </div>
                     <div className="pay_detail">
                         <Paybar/>
@@ -30,6 +29,6 @@ const Mytrip = () => {
                 </div> 
             </div>
         </Getdatacss>
-   </> )
+   </div> )
 }
 export {Mytrip}

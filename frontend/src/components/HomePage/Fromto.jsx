@@ -43,13 +43,11 @@ export const Fromto = ({handleChange}) => {
           <input type="date" className="date" />
         </div>
         <div>
-          <h3>TO</h3>
-          <select name="" id="">
-            <option value="">Delhi</option>
-          </select>
+          <h3>RETURN</h3>
+          <input placeholder="choose it" type="date" className="date" />
         </div>
         <div>
-          <h3>TO</h3>
+          <h3>TRAVLLER & CLASS</h3>
           <select name="" id="">
             <option value="">Delhi</option>
           </select>

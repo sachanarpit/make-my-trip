@@ -7,35 +7,47 @@ export const Search = () => {
   const [dataa, setData] = useState([]);
   const handleSelect = async (select) => {
     let isMount = true;
-    if(isMount){
+    if (isMount) {
       let promise = async () => {
         const data = await fetch(
-          `http://api.aviationstack.com/v1/flights?limit=100&dep_iata=${select.from}&arr_iata=${select.to}&access_key=a6c1cdd70d8fe2e2fdf5ed89d652b632`
+          `http://api.aviationstack.com/v1/flights?limit=100&dep_iata=${select.from}&arr_iata=${select.to}&access_key=c005940e7115ec7707becad3f0008052
+          `
         );
-        const ans = await data.json();
-        setData(ans.data);
+        let ans = await data.json();
+        ans = ans.data;
+        if (ans.length === 0) {
+          alert("No planes are available");
+        } else {
+          setData(ans);
+        }
       };
       promise();
     }
   };
   useEffect(() => {
     let isMounted = true;
-    let x = localStorage.getItem("myKey");
-    let y = JSON.parse(x);
     if (isMounted) {
+      let x = localStorage.getItem("myKey");
+      let y = JSON.parse(x);
       let promise = async () => {
         const data = await fetch(
-          `http://api.aviationstack.com/v1/flights?limit=100&dep_iata=${y.from}&arr_iata=${y.to}&access_key=a6c1cdd70d8fe2e2fdf5ed89d652b632`
+          `http://api.aviationstack.com/v1/flights?limit=100&dep_iata=${y.from}&arr_iata=${y.to}&access_key=c005940e7115ec7707becad3f0008052
+          `
         );
-        const ans = await data.json();
-        setData(ans.data);
+        let ans = await data.json();
+        ans = ans.data;
+        if (ans.length === 0) {
+          alert("No planes are available");
+        } else {
+          setData(ans);
+        }
       };
       promise();
     }
   }, []);
 
   const bookData = (e) => {
-    localStorage.setItem('buy',JSON.stringify(e))
+    localStorage.setItem("buy", JSON.stringify(e));
   };
   return (
     <>
