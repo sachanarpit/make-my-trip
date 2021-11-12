@@ -4,7 +4,7 @@ const router = express.Router();
 
 const Order = require("../models/order.model");
 
-router.post("", (req, res) => {
+router.post("", async (req, res) => {
   let user = await Order.create(req.body);
   return res.send(user);
 });
