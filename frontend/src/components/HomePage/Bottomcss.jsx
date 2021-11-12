@@ -60,13 +60,6 @@ export const Bottomcss = styled.div`
       display: flex;
       font-size: 14px;
       margin: 0px 74.5px;
-
-
-
-
-
-
     }
   }
-
 `;

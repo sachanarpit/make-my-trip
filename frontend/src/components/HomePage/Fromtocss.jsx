@@ -21,7 +21,7 @@ h3{
 }
 .fromtodiv div{
     border-right: 0.01em solid #d4d0d0;
-    height:99%;
+    height:82%;
 }
 .fromtodiv select {
     padding:4%;
@@ -44,10 +44,11 @@ h3{
 .date{
     border:none;
     font-size: 16px;
+    margin-left: 10px;
 }
 .fromtodiv2 div{
     border-right: 0.01em solid #d4d0d0;
-    height:99%;
+    height:89%;
 }
 .fromtodiv2 select {
     padding:4%;

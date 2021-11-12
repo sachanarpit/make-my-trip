@@ -1,15 +1,16 @@
 import styled from "styled-components";
+import { nanoid } from "nanoid";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const Style = styled.div`
-  height: 1000px;
   display: grid;
   grid-template-columns: 30% 70%;
   gap: 30px;
   background-color: #e4e4e4;
   .filters {
     background-color: white;
-    height: 600px;
     margin-left: 100px;
+    height: 700px;
     box-shadow: 0px 0px 4px #c9c8c8;
     position: relative;
     top: -140px;
@@ -49,8 +50,13 @@ const Style = styled.div`
             font-weight: 700;
           }
         }
+        a{
+          text-decoration: none;
+          color: white;
+        }
         .two {
           display: flex;
+          text-align: center;
           flex-direction: column;
           line-height: 10px;
           /* align-items: center; */
@@ -97,17 +103,20 @@ const Style = styled.div`
           top: -20px;
         }
         button {
-          width: 150px;
-          height: 34px;
-          padding: 0px 8px 0px 8px;
-          border: 1px solid blue;
-          border-radius: 20px;
-          color: blue;
-          background-color: rgb(173, 222, 255);
+          width: 130px;
+          height: 38px;
+          border-radius: 25px;
+          background: linear-gradient(
+            to right,
+            #8f92fa 0%,
+            #6165f0 50%,
+            #6c70eb 50%,
+            #3339e9 100%
+          );
+          border: none;
+          color: white;
           font-weight: 600;
-          font-size: 16px;
-          position: relative;
-          top: 10px;
+          font-size: 15px;
         }
       }
       .div2 {
@@ -135,71 +144,192 @@ const Style = styled.div`
         color: blue;
       }
     }
-    .hidden {
-      .graydiv {
-        height: 40px;
-        background-color: gray;
-      }
+  }
+  .firstFilter {
+    padding: 12px 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h3 {
+      color: #000000;
+      font-size: 17px;
+      line-height: 0px;
+      text-align: left;
     }
-    .none {
-      display: none;
+    .div {
+      padding: 0;
+      align-items: center;
+      color: #000000;
+      display: flex;
+      font-size: 14px;
+      p {
+        color: #000000;
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+        line-height: 21px;
+        font-weight: 500;
+        margin-left: 10px;
+        align-items: center;
+      }
     }
   }
 `;
-export const Bottom = () => {
-  const [set, setItem] = useState(false);
+export const Bottom = ({ data, bookData }) => {
+  const [value, setValue] = useState("");
+  const handleSlider = (e) => {
+    setValue(e.target.value);
+  };
+  let x = localStorage.getItem("myKey");
+  let y = JSON.parse(x);
   return (
     <Style>
-      <div className="filters"></div>
-      <div className="allData">
-        <h1>Flight from HongKong to Bengluru</h1>
-        <div className="maping">
-          <div className="div1">
-            <div className="one">
-              <img
-                src="https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SQ.png?v=7"
-                alt=""
-              />
-              <p>Kingfisher</p>
-            </div>
-            <div className="two">
-              <h5>12:10</h5>
-              <p>Hong Kong</p>
-            </div>
-            <div className="three">
-              <p>Hours</p>
-              <div></div>
-              <span>1 stop via bengluru</span>
-            </div>
-            <div className="two">
-              <h5>12:10</h5>
-              <p>Hong Kong</p>
-            </div>
-            <h4>121212$</h4>
-            <button
-              onClick={() => {
-                setItem(!set ? true : false);
-              }}
-            >
-              View price
-            </button>
+      <div className="filters">
+        <div className="firstFilter">
+          <h3>Sort by price</h3>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Low to High</p>
           </div>
-          <div className="div2">
-            Travel to India is open for all Indian passport holders, OCI & PIO
-            cardholders holding passports of any country and all foreign
-            nationals who wish to visit India for any purpose (including their
-            dependents on appropriate category of dependent visa) except those
-            on Tourist Visa. Please read the 'Important Information' section on
-            the next screen before booking your flight.
-          </div>
-          <div className="div3">
-            <p>Easily Refundable</p>
-            <p>View Flight Details</p>
-          </div>
-          <div className={set ? "hidden" : "none"}>
-            <div className="graydiv"></div>
+          <div className="div">
+            <input type="checkbox" />
+            <p>High to Low</p>
           </div>
         </div>
+        <div className="firstFilter">
+          <h3>Popular Filters</h3>
+          <div className="div">
+            <input type="checkbox" />
+            <p>stop</p>
+          </div>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Late Departures</p>
+          </div>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Refundable Fares</p>
+          </div>
+        </div>
+        <div className="firstFilter">
+          <h3>Alliances & Airlines</h3>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Air India</p>
+          </div>
+          <div className="div">
+            <input type="checkbox" />
+            <p>British Airways</p>
+          </div>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Lufthansa</p>
+          </div>
+        </div>
+        <div className="firstFilter">
+          <h3>Layover Airports</h3>
+          <div className="div">
+            <input type="checkbox" />
+            <p>Frankfurt</p>
+          </div>
+        </div>
+        <div className="firstFilter">
+          <h3>Select Range ₹{value}</h3>
+          <input type="range" min="1000" max="10000" onChange={handleSlider} />
+        </div>
+      </div>
+      <div className="allData">
+        <h1>
+          Flight from {y.from} to {y.to}
+        </h1>
+        {data.map((e) => (
+          <div key={nanoid(6)} className="maping">
+            <div className="div1">
+              <div className="one">
+                <img
+                  src={
+                    e.airline.name === "IndiGo"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/6E.png?v=7"
+                      : e.airline.name === "Air India"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/AI.png?v=7"
+                      : e.airline.name === "AirAsia"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/I5.png?v=7"
+                      : e.airline.name === "Vistara"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/UK.png?v=7"
+                      : e.airline.name === "SpiceJet"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/SG.png?v=7"
+                      : e.airline.name === "GoAir"
+                      ? "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/G8.png?v=7"
+                      : "https://imgak.mmtcdn.com/flights/assets/media/dt/common/icons/G8.png?v=7"
+                  }
+                  alt=""
+                />
+                <p>{e.airline.name}</p>
+              </div>
+              <div className="two">
+                <h5>{e.departure.scheduled.split("T")[1].split("+")[0]}</h5>
+                <p>{e.departure.iata}</p>
+              </div>
+              <div className="three">
+                <p>
+                  {+e.arrival.scheduled
+                    .split("T")[1]
+                    .split("+")[0]
+                    .split(":")[0] -
+                    Number(
+                      e.departure.scheduled
+                        .split("T")[1]
+                        .split("+")[0]
+                        .split(":")[0]
+                    ) +
+                    " hours " +
+                    (+e.arrival.scheduled
+                      .split("T")[1]
+                      .split("+")[0]
+                      .split(":")[1] -
+                      Number(
+                        e.departure.scheduled
+                          .split("T")[1]
+                          .split("+")[0]
+                          .split(":")[1]
+                      ) +
+                      " minutes")}
+                </p>
+                <div></div>
+                <span>Safe Journey</span>
+              </div>
+              <div className="two">
+                <h5>{e.arrival.scheduled.split("T")[1].split("+")[0]}</h5>
+                <p>{e.arrival.iata}</p>
+              </div>
+              <h4>
+                {+e.departure.delay === 0 || null
+                  ? "₹5050"
+                  : "₹" + e.departure.delay * 200}
+              </h4>
+              <button
+                onClick={() => {
+                  bookData(e);
+                }}
+              >
+                <Link to="/checkout">BOOK NOW</Link>
+              </button>
+            </div>
+            <div className="div2">
+              Travel to India is open for all Indian passport holders, OCI & PIO
+              cardholders holding passports of any country and all foreign
+              nationals who wish to visit India for any purpose (including their
+              dependents on appropriate category of dependent visa) except those
+              on Tourist Visa. Please read the 'Important Information' section
+              on the next screen before booking your flight.
+            </div>
+            <div className="div3">
+              <p>Easily Refundable</p>
+              <p>View Flight Details</p>
+            </div>
+          </div>
+        ))}
       </div>
     </Style>
   );

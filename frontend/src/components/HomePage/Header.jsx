@@ -97,11 +97,7 @@ export const Header = () => {
       <div className={nav ? "icondiv" : "disnone"}>
         <div className="imgdiv">
           <Link to="/">
-            {" "}
-            <img
-              src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png"
-              alt=""
-            />
+            <img src={"https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png"} alt="Logo" />
           </Link>
         </div>
         <div className="icons">
