@@ -1,5 +1,5 @@
 const express = require("express");
-const connect = require("./config/db");
+//const connect = require("./config/db");
 const app = express();
 require("dotenv").config();
 const port = process.env.port;
@@ -174,7 +174,7 @@ app.get("/logout", (req,res)=>{
 
 
 const start = async () => {
-  await connect();
+  //await connect();
   app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 };
 
