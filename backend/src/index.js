@@ -36,13 +36,13 @@ app.post('/sendOTP',(req,res)=>{
     const hash = crypto.createHmac('sha256',smsKey).update(data).digest("hex");
     const fullhash = `${hash}.${expires}`;
 
-    client.messages.create({
-        body:`Your One Time Login Password for CFM is ${otp}`,
-        from:+18048893104,
-        to:phone
-    }).then((messages)=>console.log(messages)).catch((err)=>console.error(err))
+    // client.messages.create({
+    //     body:`Your One Time Login Password for CFM is ${otp}`,
+    //     from:+18048893104,
+    //     to:phone
+    // }).then((messages)=>console.log(messages)).catch((err)=>console.error(err))
 
-    res.status(200).send({phone,hash:fullhash,otp})
+     res.status(200).send({phone,hash:fullhash,otp})
 })
 
 /************************* Verify router ******************/
