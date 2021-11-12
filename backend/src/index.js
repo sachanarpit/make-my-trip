@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({origin:'http://localhost:3000',credentials:true}))
 
-/******************* Send OTP */
+/******************* Send OTP ****/
 
 app.post('/sendOTP',(req,res)=>{
     const phone = req.body.phone;
