@@ -4,7 +4,7 @@ import "./confirmOtp.css";
 import axios from "axios";
 export const ConfirmOtp = (props) => {
 
-  const { handleChange,value } = props;
+  const { handleChange,value, handleNewUser } = props;
   axios.defaults.withCredentials = true;
 
   const handleSubmit = (e) => {
@@ -18,7 +18,8 @@ export const ConfirmOtp = (props) => {
 
     }).then((res)=>{
       alert("Login Success")
-      window.location.reload()
+      handleNewUser(value.phone)
+      //window.location.reload()
       
       //console.log(res.data)
     }).catch((err)=>{
@@ -26,6 +27,8 @@ export const ConfirmOtp = (props) => {
      // console.error(err.response.data.msg)
     })
   };
+
+  
 
   return (
     <div className="otp-cont">

@@ -6,14 +6,14 @@ import { Login } from "./components/login/Login";
 function App() {
 
       // for popup 
-      const handleClick = () => {
+      const handlePopup = () => {
         const popup = document.getElementById("popup");
         popup.classList.toggle("active");
       };
 
   return (
     <div className="App" >
-     <Login handleClick={handleClick}/>
+     <Login handleClick={handlePopup}/>
     </div>
   );
 }

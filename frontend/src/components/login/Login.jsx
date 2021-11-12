@@ -5,8 +5,8 @@ import Auth from "../../auth";
 import axios from "axios";
 export const Login = ({ handleClick}) => {
   
-  const [user, setUser] = useState({ name: "Rahul Kumar" });
-
+  const [user, setUser] = useState(null);
+  
   const logOut = ()=>{
 
     axios.get("http://localhost:4000/logout").then((res)=>{
@@ -20,8 +20,12 @@ export const Login = ({ handleClick}) => {
  
 
   //setting user details
-  const handleUser = (mob)=>{
-    console.log(mob);
+  const handleUser = (user)=>{
+
+    handleClick()
+
+    setUser(user)
+    
     //set the login user here...
   }
 
