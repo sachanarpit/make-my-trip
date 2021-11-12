@@ -1,32 +1,62 @@
-function BookingDetails() {
-    return (
-        <div>
-            
-            <h3 style={{marginLeft:"50px"}}>Booking details will be sent to</h3>
-            <div className="outer_div">
-                
-                    <p style={{marginLeft:"25px"}}> Your ticket and flights information will be sent here.</p>
-                    <div style={{display:"flex",justifyContent:"space-evenly"}}>
-                        <div>
-                            <div>Country code</div>
-                            <select style={{padding:"8px", width:"220px",marginTop:"8px"}} name="Wheelchair">
-                                <option value="India">India(91)</option>
-                                <option value="Afghanistan">Afghanistan(93)</option>
-                            </select>
-                        </div>
-                        <div>
-                            <div>Mobile No</div>
-                            <input className="" style={{}} type="number" placeholder="Mobile No" />
-                        </div>
-                        <div>
-                            <div>Email</div>
-                            <input style={{padding:"7px",width:"220px",marginTop:"8px"}} type="number" placeholder="Email" />
-                        </div>
-                        </div>
-                    </div>
-            
-            </div>
-    )
-}
+import styled from "styled-components";
+const Style = styled.div`
+  width: 61.6%;
+  margin-left: 70px;
+  #main {
+    padding: 2%;
+    width: 93%;
+    border-radius: 8px;
+    margin: auto;
+    .input {
+      display: flex;
+      justify-content: space-between;
+      line-height: 5px;
+      input{
+          padding: 3%;
+          width: 220px;
+          height: 27px;
+      }
+      select{
+          width: 220px;
+          padding: 3%;
+          border-radius: 7px;
+          height: 44px;
+      }
+    }
+  }
+  .outer {
+    box-shadow: 0px 0px 3px gray;
+    padding: 2%;
+    width: 100%;
+    border-radius: 8px;
+  }
+`;
 
-export { BookingDetails };
+export const BookingDetails = () => {
+  return (
+    <Style>
+      <h2>Booking details will be send to</h2>
+      <div className="outer">
+        <h4>Your ticked and flight information will be sent here.</h4>
+        <div id="main">
+          <div className="input">
+            <div>
+              <p>Country Code</p>
+              <select name="" id="">
+                <option value="in">(+91)India</option>
+              </select>
+            </div>
+            <div>
+              <p>Moblie No</p>
+              <input type="text" placeholder="Mobile No" />
+            </div>
+            <div>
+              <p>Email</p>
+              <input type="text" placeholder="Email" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Style>
+  );
+};
