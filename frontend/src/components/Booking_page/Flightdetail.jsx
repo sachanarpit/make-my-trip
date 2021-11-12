@@ -12,7 +12,7 @@ const Flightdetail = () => {
                         <h2> {res.departure.iata} → {res.arrival.iata} </h2>
                         <p>
                             <span className="date">Friday, Dec 10</span>
-                            <span>Non Stop · {+res.arrival.scheduled
+                            <span className="date">Non Stop  {+res.arrival.scheduled
                     .split("T")[1]
                     .split("+")[0]
                     .split(":")[0] -
@@ -78,7 +78,7 @@ const Flightdetail = () => {
                                 <h4>{res.departure.iata}</h4>
                                 <p>{res.departure.airport}</p>
                            </div>
-                           <div><p> {+res.arrival.scheduled
+                           <div className="timeer"><p> {+res.arrival.scheduled
                     .split("T")[1]
                     .split("+")[0]
                     .split(":")[0] -

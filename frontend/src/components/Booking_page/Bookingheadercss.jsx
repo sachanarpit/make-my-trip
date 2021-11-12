@@ -35,4 +35,5 @@ export const Bookingheadercss = styled.div`
       margin-bottom: 25px;
     }
   }
+  
 `;

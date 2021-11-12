@@ -57,7 +57,7 @@ const Canceldetail = () => {
             </h6>
           </div>
         </div>
-        <div className="cancel_footer">
+        <div className="cancel_footer2">
           <div className="cancel_footer_left">
             <img
               className="rs_icon"

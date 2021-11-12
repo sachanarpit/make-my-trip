@@ -2,18 +2,15 @@ import styled from 'styled-components'
 
 
 export const Flightdetailfootercss = styled.div`
-
 .flightfooter {
     text-align: left;
-    width: 88%;
+    width: 86%;
     margin: 20px;
-    padding: 12px 0;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 21%);
-    border:1px solid #e9e9e9;
+    padding: 2%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px gray;
     background-color: #fff;
-    position: relative;
-    padding: 10px;
+
 
     h3 {
         margin-left: 15px;
@@ -34,6 +31,30 @@ export const Flightdetailfootercss = styled.div`
         margin: 0px;
         margin-left: 15px;
     }
+}
+.btn{
+    width:170px;
+    margin: auto;
+button{
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    width: 170px;
+      height: 45px;
+      border-radius: 25px;
+      background: linear-gradient(
+        to right,
+        #8f92fa 0%,
+        #6165f0 50%,
+        #6c70eb 50%,
+        #3339e9 100%
+      );
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+}
 }
 `
 

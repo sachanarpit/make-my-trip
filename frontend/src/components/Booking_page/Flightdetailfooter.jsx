@@ -1,6 +1,6 @@
 
 import {Flightdetailfootercss} from './Flightdetailfootercss.jsx';
-
+import { Link } from 'react-router-dom';
 const Flightdetailfooter = () => {
 
 
@@ -53,6 +53,7 @@ const Flightdetailfooter = () => {
                    </ul> 
                </div>               
            </div>
+           <div className="btn"><button><Link to="/final">CONTINUE</Link></button></div>
        </Flightdetailfootercss>
     )
 }

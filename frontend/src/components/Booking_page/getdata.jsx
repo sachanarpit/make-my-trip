@@ -1,34 +1,20 @@
 import { Bookingheader } from "./Bookingheader";
-import { Canceldetail } from "./Canceldetail";
-import { Flightdetail } from "./Flightdetail";
-import { Flightdetailfooter } from "./Flightdetailfooter";
 import { Getdatacss } from "./Getdatacss";
-import { Luggagebar } from "./Luggagebar";
-import { Paybar } from "./Paybar";
-import {Header} from '../SearchPage/Header'
-import {App} from './gourav/App'
+import { Header } from "../SearchPage/Header";
+// import { App } from "./gourav/App";
+// import { Route, Routes } from "react-router-dom";
+import { Final } from "./Final";
 const Mytrip = () => {
-
-   
-    return (<div>
-         <Header/>
-        <Getdatacss>
-            <div className="main_div">
-                <Bookingheader/>
-                <div className="final">
-                    <div className="detail">
-                        <Flightdetail/>
-                        <Luggagebar/>
-                        <Canceldetail/>
-                        <Flightdetailfooter/>
-                        <App/>
-                    </div>
-                    <div className="pay_detail">
-                        <Paybar/>
-                    </div>
-                </div> 
-            </div>
-        </Getdatacss>
-   </div> )
-}
-export {Mytrip}
+  return (
+    <div>
+      <Header />
+      <Getdatacss>
+        <div className="main_div">
+          <Bookingheader />
+          <Final />
+        </div>
+      </Getdatacss>
+    </div>
+  );
+};
+export { Mytrip };
