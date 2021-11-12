@@ -2,10 +2,13 @@ import styled from "styled-components";
 const Style = styled.div`
   width: 61.6%;
   margin-left: 70px;
+  
   #main {
     padding: 2%;
     width: 93%;
     border-radius: 8px;
+    background-color: white;
+
     margin: auto;
     .input {
       display: flex;
@@ -29,6 +32,8 @@ const Style = styled.div`
     padding: 2%;
     width: 100%;
     border-radius: 8px;
+    background-color: white;
+
   }
 `;
 

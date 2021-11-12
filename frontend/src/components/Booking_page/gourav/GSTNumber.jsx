@@ -10,6 +10,8 @@ margin-left: 70px;
     gap: 20px;
     align-items: center;
     height: 40px;
+    background-color: white;
+
     p{
         font-size: 18px;
     }

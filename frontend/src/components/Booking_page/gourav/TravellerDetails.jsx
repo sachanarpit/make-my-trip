@@ -6,6 +6,8 @@ const Style = styled.div`
   border-radius: 8px;
   margin-left: 70px;
   box-shadow: 0px 0px 3px gray;
+  background-color: white;
+
   .heading {
     box-shadow: 0px 0px 2px gray;
     border-radius: 8px;
@@ -15,6 +17,7 @@ const Style = styled.div`
     justify-content: space-between;
     width: 95%;
     height: 30px;
+
     align-items: center;
     margin: auto;
     h4 {

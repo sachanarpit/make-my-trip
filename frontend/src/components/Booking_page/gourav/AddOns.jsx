@@ -1,25 +1,94 @@
-import "./AddOne.css"
+import styled from "styled-components";
+const Style = styled.div`
+  width: 64%;
+  margin-left: 70px;
+  .main {
+    height: 120px;
+    padding: 2%;
+    box-shadow: 0px 0px 3px gray;
+    border-radius: 8px;
+    background-color: white;
+    .green {
+      font-size: 15px;
+      color: green;
+    }
+    h4 {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .secure {
+    div {
+      padding: 2%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      top: -20px;
+    }
+  }
+  .acc{
+      padding: 2%;
+      margin-top: 50px;
+      box-shadow: 0px 0px 3px gray;
+      border-radius: 8px;
+      background-color: white;
 
-function AddOns() {
-
-    return (
-        <div>
-            
-            <h3 style={{marginLeft:"50px"}}>Add-Ons</h3>
-            <div className="outer_div">
-                <div style={{display:"flex",marginTop:"15px"}}>
-                <span><img style={{width:"24px"}} src="https://imgak.mmtcdn.com/flights/assets/media/mobile/common/2X/covidInsurance.png" alt="" /></span>
-                <span style={{ fontSize: "20px",marginLeft:"20px"}}><b>Rs 2 lacs Covid Insurance</b></span>
-                <span><img style={{ width:"30px",marginLeft:"440px"}} src="https://imgak.mmtcdn.com/flights/assets/media/mobile/common/2X/adityaBirlaIcon.png" alt="" /></span>
-                </div>
-                <div className="inner_shadow_box" style={{display:"flex" }}>
-                    <div style={{ width: "560px" }}>Strengthen your safety with COVID insurance of Rs.2,00,000 for hospitalization (new strain covered). Validity 16 days from trip date. TnC Apply <span style={{color:"#1f77f7",cursor:"pointer"}}>View all benefits</span></div>
-                    <span className="rs99"> <b>₹ 99</b> </span>
-                    <div id = "hover_div">+ ADD</div>
-                </div>
-            </div>
+      p{
+          font-size: 15px;
+          font-weight: 500;
+      }
+  }
+  .continue{
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    width: 230px;
+      height: 35px;
+      border-radius: 25px;
+      background: linear-gradient(
+        to right,
+        #8f92fa 0%,
+        #6165f0 50%,
+        #6c70eb 50%,
+        #3339e9 100%
+      );
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+  }
+`;
+export const AddOns = () => {
+  return (
+    <Style>
+      <h2>Add-ons</h2>
+      <div className="main">
+        <p className="green">
+          Great! Your trip is now protected, as just RS299 per traveller (18%
+          GST Included) Know more
+        </p>
+        <div className="secure">
+          <div>
+            <input type="checkbox" />
+            <h4>Yes, secure my trip</h4>
+          </div>
+          <div>
+            <input type="checkbox" />
+            <h4>No, I do not wish to secure my trip</h4>
+          </div>
         </div>
-    )
-}
+      </div>
 
-export { AddOns };
+      <div className="acc">
+        <p>
+          By clicking on the continue button below to proceed with the booking.
+          I confirm that I have read and I accept the Fare Rules, the Privacy
+          Policy, the User Agrreement and Terms of Services of MakeMyTrip.
+        </p>
+        <button className="continue">CONTINUE</button>
+      </div>
+    </Style>
+  );
+};
