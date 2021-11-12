@@ -22,4 +22,12 @@ rauter.post("/", async (req, res) => {
   return res.status(201).send(items);
 });
 
+rauter.get("/:name", (req, res) => {
+  let regex = req.params.name;
+
+  Checkout.find({ user: regex }).then((result) => {
+    return res.status(200).json(result);
+  });
+});
+
 module.exports = rauter;

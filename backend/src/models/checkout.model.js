@@ -7,7 +7,7 @@ const checkoutSchema = new mongoose.Schema({
   },
   date: { type: String },
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "users",
   },
 });
