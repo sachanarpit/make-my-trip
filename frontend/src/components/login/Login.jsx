@@ -5,7 +5,7 @@ import Auth from "../../auth";
 import axios from "axios";
 export const Login = ({ handleClick}) => {
   
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({name:"Traveller"});
   
   const logOut = ()=>{
 
@@ -17,6 +17,12 @@ export const Login = ({ handleClick}) => {
     })
   }
 
+  // if(Auth.isAuthenticated()){
+  //   //fetch the user from database and set user
+  //   setUser({name:"rahul yadav"})
+
+  //   //else create new user
+  // }
  
 
   //setting user details
