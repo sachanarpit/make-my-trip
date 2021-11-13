@@ -1,4 +1,6 @@
 import styled from "styled-components";
+// import axios from 'axios'
+import PaymentButton from '../../paymentPage/PaymentButton'
 const Style = styled.div`
   width: 64%;
   margin-left: 70px;
@@ -39,26 +41,6 @@ const Style = styled.div`
           font-weight: 500;
       }
   }
-  .continue{
-    a{
-        text-decoration: none;
-        color: white;
-    }
-    width: 230px;
-      height: 35px;
-      border-radius: 25px;
-      background: linear-gradient(
-        to right,
-        #8f92fa 0%,
-        #6165f0 50%,
-        #6c70eb 50%,
-        #3339e9 100%
-      );
-      border: none;
-      color: white;
-      font-weight: 700;
-      font-size: 20px;
-  }
 `;
 export const AddOns = () => {
   return (
@@ -87,7 +69,7 @@ export const AddOns = () => {
           I confirm that I have read and I accept the Fare Rules, the Privacy
           Policy, the User Agrreement and Terms of Services of MakeMyTrip.
         </p>
-        <button className="continue">CONTINUE</button>
+        <PaymentButton/>
       </div>
     </Style>
   );
