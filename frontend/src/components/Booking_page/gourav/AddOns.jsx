@@ -1,5 +1,8 @@
 import styled from "styled-components";
+<<<<<<< HEAD
 import axios from 'axios'
+=======
+>>>>>>> master
 const Style = styled.div`
   width: 64%;
   margin-left: 70px;
@@ -62,10 +65,13 @@ const Style = styled.div`
   }
 `;
 export const AddOns = () => {
+<<<<<<< HEAD
   const handleRazor = async ()=>{
     const data = await axios.post('http://localhost:3001/razorpay')
     console.log(data);
   }
+=======
+>>>>>>> master
   return (
     <Style>
       <h2>Add-ons</h2>
@@ -92,7 +98,11 @@ export const AddOns = () => {
           I confirm that I have read and I accept the Fare Rules, the Privacy
           Policy, the User Agrreement and Terms of Services of MakeMyTrip.
         </p>
+<<<<<<< HEAD
         <button onClick={handleRazor} className="continue">CONTINUE</button>
+=======
+        <button className="continue">CONTINUE</button>
+>>>>>>> master
       </div>
     </Style>
   );
