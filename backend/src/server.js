@@ -8,12 +8,14 @@ app.use(express.json());
 let userController = require("./controllers/user.controller");
 let checkoutController = require("./controllers/checkout.controller");
 let orderController = require("./controllers/order.controller");
+let paymentController = require("./controllers/payment.controller");
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
 app.use("/users", userController);
 app.use("/checkout", checkoutController);
 app.use("/order", orderController);
+app.use("/payment", paymentController);
 
 const start = async () => {
   await connect();
