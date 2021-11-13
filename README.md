@@ -1,3 +1,4 @@
+
 Hello, my name is arpit. I am a student at  [Masai School](https://masaischool.com/) so during the construct week, we have assigned a project of a clone of  [Makemytrip](https://www.makemytrip.com/). 
 it is a team project in my team there are three members -  [Arpit Sachan](https://github.com/sachanarpit),  [Dharmesh Yadav](https://github.com/dharmeshrao),  [Rahul Kumar Yadav](https://github.com/rahulyadav96). we created a whole clone using MERN Stack in just a week.
 
@@ -45,10 +46,10 @@ NodeMailer -  [nodemailer.com/](https://nodemailer.com/)
 ## Search Page
 
 ![screencapture-localhost-3005-search-2021-11-13-20_08_52.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1636819783064/o0BPrMowgc.png)
+![Screenshot (42)](https://user-images.githubusercontent.com/87421773/141656488-8910d26d-c2e8-4678-92e5-4d00641ecdac.png)
 
 ##Payment Page
 
-![screencapture-localhost-3005-final-2021-11-13-20_09_34.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1636819907356/aKunpwwt8.png)
 
 
 
