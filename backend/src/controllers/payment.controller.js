@@ -1,65 +1,37 @@
 require("dotenv").config();
 const express = require("express");
 const router = express.Router();
+
+const shortid = require("shortid");
 const Razorpay = require("razorpay");
-const crypto = require("crypto");
 
-router.post("/orders", async (req, res) => {
-  try {
-    const instance = new Razorpay({
-      key_id: process.env.KEY_ID,
-      key_secret: process.env.KEY_SECRET,
-    });
-
-    const options = {
-      amount: 50000,
-      currency: "INR",
-      receipt: "receipt_order_74394",
-    };
-
-    const order = await instance.orders.create(options);
-
-    if (!order) return res.status(500).send("Some error occured");
-
-    res.json(order);
-  } catch (error) {
-    res.status(500).send(error);
-  }
+const razorpay = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-router.post("/succss", async (req, res) => {
+router.post("", async (req, res) => {
+  const payment_capture = 1;
+  const amount = 1;
+  const currency = "INR";
+
+  const options = {
+    amount: amount * 100,
+    currency,
+    receipt: shortid.generate(),
+    payment_capture,
+  };
+
   try {
-    const {
-      orderCreationId,
-      razorpayPaymentId,
-      razorpayOrderId,
-      razorpaySignature,
-    } = req.body;
-    const shasum = crypto.createHmac("sha256", process.env.KEY_SECRET);
-    shasum.update(`${orderCreationId}|${razorpayPaymentId}`);
-    const digest = shasum.digest("hex");
-
-    if (digest !== razorpaySignature)
-      return res.status(400).json({ msg: "Transaction not legit!" });
-
-    const newPayment = PaymentDetails({
-      razorpayDetails: {
-        orderId: razorpayOrderId,
-        paymentId: razorpayPaymentId,
-        signature: razorpaySignature,
-      },
-      success: true,
-    });
-
-    await newPayment.save();
-
+    const response = await razorpay.orders.create(options);
+    console.log(response);
     res.json({
-      msg: "success",
-      orderId: razorpayOrderId,
-      paymentId: razorpayPaymentId,
+      id: response.id,
+      currency: response.currency,
+      amount: response.amount,
     });
   } catch (error) {
-    res.status(500).send(error);
+    console.log(error);
   }
 });
 
