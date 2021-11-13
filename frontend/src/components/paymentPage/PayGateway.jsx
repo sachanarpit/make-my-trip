@@ -1,21 +1,16 @@
-import { axios } from "axios";
+import axios from "axios";
 
 const displayRazorpay = async () => {
   //   const data = await fetch(`http://localhost:6000/razorpay`, {
   //     method: "POST",
   //   }).then((t) => t.json());
 
-  const data = await axios
-    .post("http://localhost:6000/razorpay")
-    .then((d) => {
-      console.log(d);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  //   const data = async () => {
+  const x = await axios.post("http://localhost:3001/razorpay");
 
+  //   };
+  let data = x.data;
   console.log(data);
-
   const options = {
     key: "rzp_live_X1DoMMlNfQUgvm",
     currency: data.currency,
