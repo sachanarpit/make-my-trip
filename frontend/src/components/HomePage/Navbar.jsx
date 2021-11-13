@@ -37,5 +37,32 @@ flex-direction: row-reverse;
     height: 40px;
   }
 }
+.button{
+    width: 200px;
+    margin: auto;
+button{
+    width: 200px;
+      height: 50px;
+      color: white;
+      font-weight: 600;
+      border:none;
+      cursor: pointer;
+      position: relative;
+      top: -27px;
+      font-size: 24px;
+      border-radius: 25px;
+      background: linear-gradient(
+        to right,
+        #8fdcfa 0%,
+        #619ff0 50%,
+        #6c9feb 50%,
+        #3339e9 100%);
+}
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+
 
 `

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import styled from "styled-components";
 const Style = styled.div`
   height: 250px;
@@ -48,6 +48,7 @@ const Style = styled.div`
         background-color: transparent;
         padding: 3px;
       }
+      option{background-color: #7e7e7e}
     }
     .second {
       width: 170px;
@@ -73,6 +74,7 @@ const Style = styled.div`
         background-color: transparent;
         padding: 3px;
       }
+      option{background-color: #494949}
     }
     button {
       width: 170px;
@@ -96,10 +98,39 @@ const Style = styled.div`
     position: fixed;
     z-index: 100;
     top: 0;
+    /* user-select: none; */
 }
 `;
 
-export const SearchBox = () => {
+export const SearchBox = ({handle}) => {
+  const [select,setSelect] = useState({
+    from: "",
+    to: ""
+  })
+  const [text, setText] = useState([]);
+  const handleSelect = (e)=>{
+   const {value,name} = e.target;
+   setSelect({
+     ...select,
+     [name]: value
+   })
+  }
+
+  useEffect(() => {
+    let promise = async () => {
+      const data = await fetch(
+        "https://raw.githubusercontent.com/ashhadulislam/JSON-Airports-India/master/airports.json"
+      );
+      const ans = await data.json();
+      setText(ans.airports);
+    };
+    promise();
+  }, []);
+
+
+  const handleButton = ()=>{
+    handle(select)
+  }
     const [nav, setNav] = useState(false);
     const handleChange = () => {
       if (window.scrollY >= 10) {
@@ -121,14 +152,22 @@ export const SearchBox = () => {
         </div>
         <div className="second">
           <p>From</p>
-          <select name="trip" id="">
-            <option value="hongkong">Hong Kong</option>
+          <select onChange={handleSelect} name="from" id="">
+          {text.map((e) => (
+              <option value={e.IATA_code} key={e.IATA_code}>
+                {e.city_name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="second">
           <p>To</p>
-          <select name="trip" id="">
-            <option value="bengaluru">Bengaluru</option>
+          <select onChange={handleSelect} name="to" id="">
+          {text.map((e) => (
+              <option value={e.IATA_code} key={e.IATA_code}>
+                {e.city_name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="second">
@@ -149,7 +188,9 @@ export const SearchBox = () => {
             <option value="one way">Oneway</option>
           </select>
         </div>
-        <button>SEARCH</button>
+        <button onClick={()=>{
+          handleButton()
+        }}>SEARCH</button>
       </div>
       </div>
     </Style>

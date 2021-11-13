@@ -50,23 +50,30 @@ export const Bottomcss = styled.div`
       color: #464646;
     }
   }
+
   .div4 {
     background-color: #000000;
     color: #4a4a4a;
     font-size: 14px;
     padding: 50px 0px 60px;
-    div {
-      color: #ffffff;
+    .fb{
       display: flex;
-      font-size: 14px;
-      margin: 0px 74.5px;
-
-
-
-
-
-
+      justify-content: space-between;
+      width: 90%;
+      margin: auto;
+      .onee{
+        display: flex;
+        cursor: pointer;
+        gap: 10px;
+        color: white;
+        align-items: center;
+      }
+      .copy{
+        line-height: 5px;
+        font-size: 18px;
+        align-items: center;
+        color: white;
+      }
     }
   }
-
 `;

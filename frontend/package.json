@@ -11,14 +11,19 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
+<<<<<<< HEAD
     "concurrently": "^6.4.0",
     "dotenv": "^10.0.0",
+=======
+    "localStorage": "^1.0.4",
+>>>>>>> origin/dharmesh
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^6.0.1",
     "react-router-dom": "^6.0.1",
     "react-scripts": "4.0.3",
     "react-slideshow-image": "^3.6.0",
+    "rsuite": "^5.2.0",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.1.2"
   },
