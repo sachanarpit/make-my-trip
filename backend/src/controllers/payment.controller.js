@@ -62,3 +62,5 @@ router.post("/succss", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+module.exports = router;
