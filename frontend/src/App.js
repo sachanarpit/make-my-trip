@@ -10,13 +10,9 @@ import { Mytrip } from "./components/Booking_page/Getdata";
 // import Payment from "./components/paymentPage/Payment";
 // import { Mytrip } from "./components/Booking_page/Getdata";
 import { Final } from "./components/Booking_page/gourav/Final";
-import {Login} from './components/login/Login'
 
 function App() {
-  const handlePopup = () => {
-    const popup = document.getElementById("popup");
-    popup.classList.toggle("active");
-  };
+
   return (
     <div>
       <Routes>
@@ -30,7 +26,6 @@ function App() {
 
         <Route path="/checkout" exact element={<Mytrip />} />
         <Route path="/final" exact element={<Final />} />
-        <Route path="/btn" exact element={ <Login handleClick={handlePopup}/>} />
 
       </Routes>
     </div>

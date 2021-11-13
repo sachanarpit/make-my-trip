@@ -10,9 +10,11 @@ import DownhillSkiingIcon from "@mui/icons-material/DownhillSkiing";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Login } from "../login/Login";
 const Icondivcss = styled.div`
   .icondiv {
     height: 60px;
+    margin-top: 20px;
     width: 100%;
     margin: auto;
     background-color: white;
@@ -54,30 +56,17 @@ const Icondivcss = styled.div`
     }
   }
   .login {
-    /* align-items: center; */
-    display: flex;
-    font-size: 13px;
-    background: linear-gradient(
-      to right,
-      #8f92fa 0%,
-      #6165f0 50%,
-      #6c70eb 50%,
-      #3339e9 100%
-    );
-    padding-left: 14px;
-    position: absolute;
-    right: 30px;
-    top: 10px;
-    font-weight: 600;
-    border-radius: 8px;
-    color: white;
-    line-height: 10px;
-    width: 150px;
-    height: 40px;
+position: relative;
+top: 13px;
+left: 150px;
   }
 `;
 
 export const Header = () => {
+  const handlePopup = () => {
+    const popup = document.getElementById("popup");
+    popup.classList.toggle("active");
+  };
   return (
     <Icondivcss>
       <div className="icondiv">
@@ -161,7 +150,7 @@ export const Header = () => {
           </div>
         </div>
         <div className="login">
-          <p>Login or Create Account</p>
+        <Login handleClick={handlePopup}/>
         </div>
       </div>
     </Icondivcss>

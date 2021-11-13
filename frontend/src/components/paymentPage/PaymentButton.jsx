@@ -25,7 +25,7 @@ const PaymentButton = () => {
   return (
     <Style>
       <button type="button" onClick={displayRazorpay}>
-        Buy Now
+        BOOK NOW
       </button>
     </Style>
   );

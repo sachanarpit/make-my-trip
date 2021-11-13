@@ -20,22 +20,7 @@ height:70px;
 display: flex;
 gap: 10px;
 flex-direction: row-reverse;
-.login {
-    /* align-items: center; */
-    display: flex;
-    position: relative;
-    top: -6px;
-    right: 60px;
-    font-size: 13px;
-    background: linear-gradient(to right,  #8f92fa 0%,#6165f0 50%,#6c70eb 50%,#3339e9 100%);
-    padding-left: 14px;
-    font-weight: 600;
-    border-radius: 8px;
-    color: white;
-    line-height: 10px;
-    width: 150px;
-    height: 40px;
-  }
+
 }
 .button{
     width: 200px;

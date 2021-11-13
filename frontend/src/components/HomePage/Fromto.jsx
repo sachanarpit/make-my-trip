@@ -49,7 +49,11 @@ export const Fromto = ({handleChange}) => {
         <div>
           <h3>TRAVLLER & CLASS</h3>
           <select name="" id="">
-            <option value="">Delhi</option>
+          <option value="">Select</option>
+
+            <option value="">Economy</option>
+            <option value="">Premium</option>
+
           </select>
         </div>
       </div>
