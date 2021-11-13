@@ -2,6 +2,7 @@ import styled from "styled-components";
 // import axios from 'axios'
 import PaymentButton from '../../paymentPage/PaymentButton'
 const Style = styled.div`
+padding-bottom: 100px;
   width: 64%;
   margin-left: 70px;
   .main {

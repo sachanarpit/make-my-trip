@@ -52,15 +52,6 @@ const Paybar = () => {
             placeholder="Enter Promo Code Here"
           ></input>
           <div className="promo_option">
-            <h5>FLYFESTIVE</h5>
-            <p>Use & Save ₹ 500</p>
-            <p>
-              Congratulations! Promo Discount of Rs. 500 applied successfully.
-            </p>
-            <p className="terms_remove"> Terms & Condition</p>
-            <p className="terms_remove">REMOVE</p>
-          </div>
-          <div className="promo_option">
             <h5>MMTSTANC</h5>
             <p>Use & Save ₹ 480</p>
             <p>
@@ -77,12 +68,6 @@ const Paybar = () => {
             <p>
               Congratulations! Promo Discount of Rs. 400 applied successfully..
             </p>
-            <p className="terms_remove">Terms & Condition</p>
-            <p className="terms_remove">REMOVE</p>
-          </div>
-          <div className="promo_option">
-            <h5>MMTHDFCEMI</h5>
-            <p>Use & Save ₹ 320</p>
             <p className="terms_remove">Terms & Condition</p>
             <p className="terms_remove">REMOVE</p>
           </div>
