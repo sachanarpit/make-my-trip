@@ -2,7 +2,7 @@
 import { Main } from "./components/HomePage/Main";
 import { Route, Routes } from "react-router-dom";
 import { Search } from "./components/SearchPage/Search";
-import { Payment } from "./components/paymentPage/Payment";
+import Payment from "./components/paymentPage/Payment";
 
 function App() {
   return (

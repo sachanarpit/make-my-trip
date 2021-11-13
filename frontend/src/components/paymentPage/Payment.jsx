@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 
 function Payment() {
+  console.log(process.env.URL);
   function loadScript(src) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
@@ -27,7 +28,7 @@ function Payment() {
       return;
     }
 
-    const result = await axios.post("/payment/orders");
+    const result = await axios.post(`http://localhost:6000//payment/orders`);
 
     if (!result) {
       alert("Server error. Are you online?");
@@ -37,7 +38,7 @@ function Payment() {
     const { amount, id: order_id, currency } = result.data;
 
     const options = {
-      key: "<YOUR RAZORPAY KEY>", // Enter the Key ID generated from the Dashboard
+      key: "rzp_live_X1DoMMlNfQUgvm", // Enter the Key ID generated from the Dashboard
       amount: amount.toString(),
       currency: currency,
       name: "Arpit Sachan",
@@ -51,7 +52,10 @@ function Payment() {
           razorpaySignature: response.razorpay_signature,
         };
 
-        const result = await axios.post("/payment/success", data);
+        const result = await axios.post(
+          `${process.env.URL}/payment/success`,
+          data
+        );
 
         alert(result.data.msg);
       },
