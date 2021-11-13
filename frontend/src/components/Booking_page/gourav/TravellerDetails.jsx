@@ -1,7 +1,17 @@
 import styled from "styled-components";
+import {Paybar} from '../Paybar'
 const Style = styled.div`
+display: grid;
+grid-template-columns: 61.5% 26%;
+.pay{
+  position: absolute;
+  top: 93px;
+  right: 40px;
+  width: 300px
+}
+ .div1{
   height: 270px;
-  width: 60%;
+  width: 100%;
   padding: 2%;
   border-radius: 8px;
   margin-left: 70px;
@@ -68,13 +78,15 @@ const Style = styled.div`
     cursor: pointer;
     top: 30px;
   }
+ }
 `;
 
 export const TravellerDetails = () => {
   return (
     <div>
       <Style>
-        <div className="heading">
+<div className="div1">
+<div className="heading">
           <h3>ADULT</h3>
           <h4>1/1 selected</h4>
         </div>
@@ -95,6 +107,10 @@ export const TravellerDetails = () => {
           </div>
         </div>
         <button className="add">+ ADD ADULT</button>
+</div>
+<div className="pay">
+  <Paybar></Paybar>
+</div>
       </Style>
     </div>
   );

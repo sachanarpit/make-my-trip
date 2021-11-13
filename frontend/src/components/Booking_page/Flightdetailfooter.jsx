@@ -2,7 +2,15 @@
 import {Flightdetailfootercss} from './Flightdetailfootercss.jsx';
 import { Link } from 'react-router-dom';
 const Flightdetailfooter = () => {
-
+const handle = ()=>{
+    let res = localStorage.getItem('buy')
+    let a = JSON.parse(res)
+    a = +a.departure.delay === 0 || null
+    ? "₹1200"
+    : "₹" + a.departure.delay * 200
+    a = a.split('₹')[1]
+    localStorage.setItem('price',JSON.stringify(a))
+}
 
     return (
        <Flightdetailfootercss>
@@ -53,7 +61,7 @@ const Flightdetailfooter = () => {
                    </ul> 
                </div>               
            </div>
-           <div className="btn"><button><Link to="/final">CONTINUE</Link></button></div>
+           <div className="btn"><button onClick={handle}><Link to="/final">CONTINUE</Link></button></div>
        </Flightdetailfootercss>
     )
 }

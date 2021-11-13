@@ -1,10 +1,8 @@
 import axios from "axios";
-
 const displayRazorpay = async () => {
-  const x = await axios.post("http://localhost:3005/razorpay",{
-    // let x = localStorage.getItem()
+  const x = await axios.post("http://localhost:3008/razorpay",{
     params:{
-      price: "2000"
+      price: '1'
     }
   });
 

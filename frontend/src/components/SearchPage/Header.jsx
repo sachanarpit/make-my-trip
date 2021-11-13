@@ -9,6 +9,7 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import DownhillSkiingIcon from "@mui/icons-material/DownhillSkiing";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 const Icondivcss = styled.div`
   .icondiv {
     height: 60px;
@@ -56,7 +57,13 @@ const Icondivcss = styled.div`
     /* align-items: center; */
     display: flex;
     font-size: 13px;
-    background: linear-gradient(to right,  #8f92fa 0%,#6165f0 50%,#6c70eb 50%,#3339e9 100%);
+    background: linear-gradient(
+      to right,
+      #8f92fa 0%,
+      #6165f0 50%,
+      #6c70eb 50%,
+      #3339e9 100%
+    );
     padding-left: 14px;
     position: absolute;
     right: 30px;
@@ -75,10 +82,9 @@ export const Header = () => {
     <Icondivcss>
       <div className="icondiv">
         <div className="imgdiv">
-          <img
-            src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png"
-            alt=""
-          />
+        <Link to="/">
+            <img src={"https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png"} alt="Logo" />
+          </Link>
         </div>
         <div className="icons">
           <div>
