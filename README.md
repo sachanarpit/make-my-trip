@@ -50,8 +50,7 @@ NodeMailer -  [nodemailer.com/](https://nodemailer.com/)
 
 ##Payment Page
 
-
-
+![screencapture-localhost-3005-checkout-2021-11-13-20_53_49](https://user-images.githubusercontent.com/87421773/141656572-8077485c-c55a-4a89-a26a-5e0d714d4d46.png)
 
 ![screencapture-localhost-3005-final-2021-11-13-20_10_22.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1636819919150/eUj6IOOoc.png)
 
