@@ -14,4 +14,10 @@ router.get("", async (req, res) => {
   return res.status(200).send({ user });
 });
 
+router.get("/:id", async (req, res) => {
+  let regex = req.params.id;
+  let user = await User.find({ _id: regex });
+  return res.status(200).send({ user });
+});
+
 module.exports = router;
