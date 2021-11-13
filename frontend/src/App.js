@@ -11,7 +11,7 @@ function App() {
   };
   return (
     <div className="App">
-      {/* <Login handleClick={handlePopup}/> */}
+      <Login handleClick={handlePopup}/>
       <Routes>
         <Route path="/" exact element={<Main />} />
         <Route path="/search" exact element={<Search />} />
