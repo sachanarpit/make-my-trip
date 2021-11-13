@@ -20,6 +20,7 @@
     "react-slideshow-image": "^3.6.0",
     "rsuite": "^5.2.0",
     "styled-components": "^5.3.3",
+    "universal-cookie": "^4.0.4",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

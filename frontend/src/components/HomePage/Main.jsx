@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { SmallBottom } from "./SmallBottom";
 import { useState } from "react";
 import { FareTypes } from "./FareTypes";
+import {Login} from "../login/Login"
 export const Main = () => {
   const [data, setData] = useState({
     from: "",
@@ -23,6 +24,11 @@ export const Main = () => {
   };
   const addLocal = () => {
     localStorage.setItem("myKey", JSON.stringify(data));
+  };
+  // for popup 
+  const handlePopup = () => {
+    const popup = document.getElementById("popup");
+    popup.classList.toggle("active");
   };
   return (
     <div>
@@ -44,7 +50,8 @@ export const Main = () => {
             />
           </Link>
           <div className="login">
-            <p>Login or Create Account</p>
+          <Login handleClick={handlePopup}/>
+            {/* <p>Login or Create Account</p> */}
           </div>
           <Smallbutton>
             <div className="smallbuttonpic">
