@@ -2,7 +2,6 @@ import { Header } from "./Header";
 import { SearchBox } from "./SearchBox";
 import { Bottom } from "./Bottom";
 import { useState, useEffect } from "react";
-// import axios from "axios";
 export const Search = () => {
   const [dataa, setData] = useState([]);
   const handleSelect = async (select) => {
@@ -24,6 +23,23 @@ export const Search = () => {
       promise();
     }
   };
+const handleSort = (e)=>{
+if(e === true){
+  const sortedList = [ ...dataa ].sort((a, b) => +a.departure.delay - +b.departure.delay);
+  setData(sortedList)
+}
+}
+const handleHigh = (e)=>{
+  if(e === true){
+    const sortedList = [ ...dataa ].sort((a, b) => +a.departure.delay - +b.departure.delay);
+    sortedList.reverse()
+    setData(sortedList)
+  }
+  }
+
+
+
+
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
@@ -53,7 +69,7 @@ export const Search = () => {
     <>
       <Header />
       <SearchBox handle={handleSelect} />
-      <Bottom data={dataa} bookData={bookData} />
+      <Bottom data={dataa} bookData={bookData} sorthigh={handleHigh} sorting={handleSort} />
     </>
   );
 };

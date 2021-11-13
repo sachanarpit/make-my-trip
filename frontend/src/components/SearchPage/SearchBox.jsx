@@ -98,6 +98,7 @@ const Style = styled.div`
     position: fixed;
     z-index: 100;
     top: 0;
+    /* user-select: none; */
 }
 `;
 

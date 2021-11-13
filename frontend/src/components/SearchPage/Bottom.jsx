@@ -176,11 +176,17 @@ const Style = styled.div`
     }
   }
 `;
-export const Bottom = ({ data, bookData }) => {
+export const Bottom = ({ data, bookData,sorting ,sorthigh}) => {
   const [value, setValue] = useState("");
   const handleSlider = (e) => {
     setValue(e.target.value);
   };
+  const handleSort = (e)=>{
+      sorting(e.target.checked)
+  }
+  const handleHigh = (e)=>{
+    sorthigh(e.target.checked)
+  }
   let x = localStorage.getItem("myKey");
   let y = JSON.parse(x);
   return (
@@ -189,11 +195,11 @@ export const Bottom = ({ data, bookData }) => {
         <div className="firstFilter">
           <h3>Sort by price</h3>
           <div className="div">
-            <input type="checkbox" />
+            <input onChange={handleSort} type="checkbox" />
             <p>Low to High</p>
           </div>
           <div className="div">
-            <input type="checkbox" />
+            <input onChange={handleHigh} type="checkbox" />
             <p>High to Low</p>
           </div>
         </div>
@@ -305,7 +311,7 @@ export const Bottom = ({ data, bookData }) => {
               </div>
               <h4>
                 {+e.departure.delay === 0 || null
-                  ? "₹5050"
+                  ? "₹1200"
                   : "₹" + e.departure.delay * 200}
               </h4>
               <button
