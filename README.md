@@ -1,5 +1,7 @@
-Hello, my name is arpit. I am a student at  [Masai School](https://masaischool.com/) so during the construct week, we have assigned a project of a clone of  [Makemytrip](https://www.makemytrip.com/). 
-it is a team project in my team there are three members -  [Arpit Sachan](https://github.com/sachanarpit),  [Dharmesh Yadav](https://github.com/dharmeshrao),  [Rahul Kumar Yadav](https://github.com/rahulyadav96). we created a whole clone using MERN Stack in just a week.
+
+![Logo](https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/mmtLogoWhite.png)
+
+# Clone of Make my Trip
 
 # Technology we use
 
@@ -28,6 +30,99 @@ Razorpay -  [razorpay.com/](https://razorpay.com/)
 ### Mail Service 
 NodeMailer -  [nodemailer.com/](https://nodemailer.com/) 
 
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Primary Color  | ![#eb2226](https://via.placeholder.com/10/eb2226?text=+) #eb2226 |
+| Backgroud color | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
+| Icons color and button color| ![#48a6fd](https://via.placeholder.com/10/48a6fd?text=+) #48a6fd |
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://link-to-project
+```
+
+Go to the project directory
+
+```bash
+  cd backend/frontend
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm start
+```
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+### Backend
+
+`mongo` - database
+
+`port` - running port
+
+`RAZORPAY_KEY_ID`
+
+`RAZORPAY_KEY_SECRET`
+
+`CURRENT_ENVIRONMENT`
+
+`SMTP_USERNAME`
+
+`SMTP_PASSWORD`
+
+`SMTP_PORT`
+
+
+### Frontend
+
+`RAZORPAY_KEY_ID`
+
+`RAZORPAY_KEY_SECRET`
+
+`PORT`
+
+
+## Features
+
+- Login and Sign up using Mobile OTP
+- Search engine to search Flights
+- Sorting of flights as his price
+- Apply the coupon on your cart 
+- Purchase the Product
+- Do payment with any type of method(Card/UPI/Net-banking)
+
+
+## Acknowledgements
+
+ - [makemytrip.com](https://www.makemytrip.com/)
+ - [Masai School](https://masaischool.com/)
+  
+
+## Authors
+
+-  [Arpit Sachan](https://github.com/sachanarpit/)
+
+- [Dharmesh Yadav](https://github.com/dharmeshrao)
+
+- [Rahul Kumar Yadav](https://github.com/rahulyadav96)
+
 
 ## Home Page
 
@@ -45,12 +140,11 @@ NodeMailer -  [nodemailer.com/](https://nodemailer.com/)
 ## Search Page
 
 ![screencapture-localhost-3005-search-2021-11-13-20_08_52.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1636819783064/o0BPrMowgc.png)
+![Screenshot (42)](https://user-images.githubusercontent.com/87421773/141656488-8910d26d-c2e8-4678-92e5-4d00641ecdac.png)
 
 ##Payment Page
 
-![screencapture-localhost-3005-final-2021-11-13-20_09_34.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1636819907356/aKunpwwt8.png)
-
-
+![screencapture-localhost-3005-checkout-2021-11-13-20_53_49](https://user-images.githubusercontent.com/87421773/141656572-8077485c-c55a-4a89-a26a-5e0d714d4d46.png)
 
 ![screencapture-localhost-3005-final-2021-11-13-20_10_22.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1636819919150/eUj6IOOoc.png)
 
